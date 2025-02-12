@@ -1,9 +1,9 @@
 /*
 Questions: What are the optimal skills to learn (aka it's in high demand and a high-paying skill)?
-- Identify skills in high demand and associated with high average salaries for Dat Analyst roles.
-- Concentrate on remote positions with speciic salaries.
+- Identify skills in high demand and associated with high average salaries for Dat Analyst roles
+- Concentrate on remote positions with speciic salaries..
 - Why? Targets skills that offer job security (high demand) and financial benefits (high salaries),
-    offering strategic insights for career development in data analysis.
+    offering strategic insights for career development in data analysis..
 */
 
 WITH optimal_skills AS(
@@ -26,7 +26,7 @@ WITH optimal_skills AS(
         jpf.job_title_short = 'Data Analyst' AND
         jpf.job_work_from_home = TRUE AND
         jpf.salary_year_avg IS NOT NULL
-    GROUP BY -- Use when you aggregate (COUNT, SUM, AVG etc..)
+    GROUP BY -- Use when aggregating (COUNT, SUM, AVG etc..)
         sd.skills,
         sd.skill_id
     HAVING

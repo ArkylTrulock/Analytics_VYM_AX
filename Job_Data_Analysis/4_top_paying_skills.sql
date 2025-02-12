@@ -1,9 +1,9 @@
 /*
 Questions: What are the top skills based on salary?
-- Look at the average salary associated with each skill for Data Analyst positions.
-- Focus on roles with specified salaries, regardless of location.
+- Look at the average salary associated with each skill for Data Analyst positions..
+- Focus on roles with specified salaries, regardless of location..
 - Why? It helps reveal how different skills impact salary levels for Data Analysts and
-    helps identify the most financially rewarding skills to aquire or improve.
+    helps identify the most financially rewarding skills to aquire or improve..
 */
 
 WITH top_paying_skills AS(
@@ -26,7 +26,7 @@ WITH top_paying_skills AS(
         jpf.job_title_short = 'Data Analyst' AND
         jpf.job_work_from_home = TRUE AND
         jpf.salary_year_avg IS NOT NULL
-    GROUP BY -- Use when you aggregate (COUNT, SUM, AVG etc..)
+    GROUP BY -- Use when aggregating (COUNT, SUM, AVG etc..)
         sd.skills,
         sd.skill_id
     -- ORDER BY

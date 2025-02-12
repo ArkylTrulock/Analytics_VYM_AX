@@ -1,7 +1,7 @@
 # Introduction 
 📊 Dive into the data job market! Focusing on data analyst roles, this project explores 💰 top paying jobs, 🔥 in-demand skills and where 📈 high demand meets 🎆 💷 high salary in data analytics.
 
-SQL queries? Check them out here: [sql_projects_folder](/SQL_Projects/PostgreSQL/Job_Data_Analysis/)
+SQL queries? Check them out here: [sql_projects_folder]()
 
 # Background
 Driven by a quest to navigate the data analyst job market more effectively, this project was born from a desire to pinpoint top-paid and in-demand skills, streamlining others work to find optimal jobs.
@@ -28,7 +28,7 @@ Each query for this project aimed at investigating specific aspects of the data 
 Here's how I approached eaxch question:
 
 
-### 1. 💰Top 10 Top-Paying Data Analyst Jobs In 2023[.sql](/SQL_Projects/PostgreSQL/Job_Data_Analysis/1_top_paying_jobs.sql)
+### 1. 💰Top 10 Top-Paying Data Analyst Jobs In 2023[.sql](1_top_paying_jobs.sql)
 To identify the highest-paying roles, I filtered data analyst positions by `average yearly salary` , `job health insurance` and `job_location`, focusing on `remote jobs`. 
 
 *This query highlights the high paying jobs in the field.*
@@ -86,10 +86,10 @@ LIMIT
     10
 ```
 
-![Top 10 Top-Paying Data Analyst Roles - Table](/SQL_Projects/PostgreSQL/Job_Data_Analysis/Assets/Top_10_Top_Paying_Data_Analyst_Roles_In_2023.png)
+![Top 10 Top-Paying Data Analyst Roles - Table](Assets/Top_10_Top_Paying_Data_Analyst_Roles_In_2023.png)
 *Generated using seaborn library*
 
-![Top 10 Top-Paying Data Analyst Roles - Barplot](/SQL_Projects/PostgreSQL/Job_Data_Analysis/Assets/Top_10_Top_paying_DA_Roles_barplot.png)
+![Top 10 Top-Paying Data Analyst Roles - Barplot](Assets/Top_10_Top_paying_DA_Roles_barplot.png)
 *Generated using seaborn library*
 
 ### General Overview:
@@ -124,7 +124,7 @@ Salary Ceiling is High: A top-tier Data Insights role pays over £250K, indicati
 
 **Stay Competitive:** Upskill in advanced analytics, data science, and leadership to qualify for the highest-paid positions.
 
-### 2. 💰Top 10 Top-Paying Data Analyst Skills In 2023[.sql](/SQL_Projects/PostgreSQL/Job_Data_Analysis/2_top_paying_job_skills.sql)
+### 2. 💰Top 10 Top-Paying Data Analyst Skills In 2023[.sql](2_top_paying_job_skills.sql)
 To identify the top-paying Skills for Data Analyst roles, I filtered data analyst positions by `salary_year_avg` , `job_health_insurance` & `job_location` focusing on `remote jobs`. 
 
 *This query highlights the high paying skills in the field.*
@@ -178,7 +178,7 @@ INNER JOIN
     skills_dim AS sd ON sjd.skill_id = sd.skill_id;
 ```
 
-### 3. 🔥Top 25 Demanded Data Analyst Skills In 2023[.sql](/SQL_Projects/PostgreSQL/Job_Data_Analysis/3_top_demanded_skills.sql)
+### 3. 🔥Top 25 Demanded Data Analyst Skills In 2023[.sql](3_top_demanded_skills.sql)
 To identify the top demanded Data Analyst Skills, I filtered Data Analyst positions by `salary_year_avg` & `job_working_from_home` and grouped by `skills` & `skill_id`.
 
 *This query highlights the top demanded skills in the field.*
@@ -225,11 +225,11 @@ LIMIT
 ```
 
 ### Dataframe
-![Top 25 Demanded Data Analyst Skills - Table](/SQL_Projects/PostgreSQL/Job_Data_Analysis/Assets/Top_25_Demanded_Data_Analyst_Job%20Skills_In_2023.png)
+![Top 25 Demanded Data Analyst Skills - Table](Assets/Top_25_Demanded_Data_Analyst_Job%20Skills_In_2023.png)
 *Generated using seaborn library*
 
 ### Barplot
-![Top 25 Demanded Data Analyst Skills - Barplot](/SQL_Projects/PostgreSQL/Job_Data_Analysis/Assets/Top_25_Demanded_DA_Job_Skills_Ordered_By_Count_barplot.png)
+![Top 25 Demanded Data Analyst Skills - Barplot](Assets/Top_25_Demanded_DA_Job_Skills_Ordered_By_Count_barplot.png)
 *Generated using seaborn library*
 
 ### General Overview
@@ -258,7 +258,7 @@ If aiming for high demand, focus on SQL, Excel, Python, and Tableau.
 If prioritizing salary growth, consider specializing in Hadoop, Snowflake, Go, or cloud platforms like AWS/Azure.
 Develop a combination of high-demand and high-paying skills for the best career prospects in data analytics.
 
-### 4. 💰Top 25 Top-Paying Data Analyst Skills In 2023[.sql](/SQL_Projects/PostgreSQL/Job_Data_Analysis/4_top_paying_skills.sql)
+### 4. 💰Top 25 Top-Paying Data Analyst Skills In 2023[.sql](4_top_paying_skills.sql)
 To identify the top-paying Data Analyst Skills, I filtered data analyst positions by `salary_year_avg` & `job_working_from_home` and grouped by `skills` & `skill_id`.
 
 *The query highlights the high paying skills in the field.*
@@ -306,11 +306,11 @@ LIMIT
 ```
 
 ### Dataframe
-![Top 25 Top-Paying Data Analyst Skills - Table](/SQL_Projects/PostgreSQL/Job_Data_Analysis/Assets/Top_25_Top_Paying_Data_Analyst_Job_Skills_In_2023.png)
+![Top 25 Top-Paying Data Analyst Skills - Table](Assets/Top_25_Top_Paying_Data_Analyst_Job_Skills_In_2023.png)
 *Generated using seaborn library*
 
 ### Barplot
-![Top 25 Top-Paying Data Analyst Skills - Barplot](/SQL_Projects/PostgreSQL/Job_Data_Analysis/Assets/Top_25_Top_Paying_DA_Job_Skills_Orderd_By_Salary_barplot.png)
+![Top 25 Top-Paying Data Analyst Skills - Barplot](Assets/Top_25_Top_Paying_DA_Job_Skills_Orderd_By_Salary_barplot.png)
 *Generated using seaborn library*
 
 ### General Overview:
@@ -345,7 +345,7 @@ High-Paying Skills Aren't Always Popular: The highest salaries often belong to r
 
 **Stay Ahead with AI & ML:** Knowledge of Watson, Scikit-learn, and DataRobot could future-proof your career
 
-### 5. 🔥📈🟰⚡💰Top 25 Optimal Data Analyst Skills In 2023[.sql](/SQL_Projects/PostgreSQL/Job_Data_Analysis/5_optimal_skills.sql)
+### 5. 🔥📈🟰⚡💰Top 25 Optimal Data Analyst Skills In 2023[.sql](5_optimal_skills.sql)
 To identify the optimal Data Analyst Skills, I filtered data analyst positions by `salary_year_avg` & `job_working_from_home` and grouped by `skills` & `skill_id`
 
 *The query highlights the high demand & high paying skills in the field.*
@@ -396,11 +396,11 @@ LIMIT
 ```
 
 ### Dataframe
-![Top 25 Optimal Data Analyst Skills - Table](/SQL_Projects/PostgreSQL/Job_Data_Analysis/Assets/Top_25_Optimal_Data_Analyst_Job_Skills_In_2023.png)
+![Top 25 Optimal Data Analyst Skills - Table](Assets/Top_25_Optimal_Data_Analyst_Job_Skills_In_2023.png)
 *Generated using seaborn library*
 
 ### Barplot
-![Top 25 Optimal Data Analyst Skills - Barplot](/SQL_Projects/PostgreSQL/Job_Data_Analysis/Assets/Top_25_Optimal_DA_Job_Skills_Ordered_By_Count_barplot.png)
+![Top 25 Optimal Data Analyst Skills - Barplot](Assets/Top_25_Optimal_DA_Job_Skills_Ordered_By_Count_barplot.png)
 *Generated using seaborn library*
 
 ### General Overview
@@ -425,12 +425,12 @@ Throughout this adventure, I've turbocharged my SQL toolkit with some serious fi
 ### Insights
 From the analysis, several insights emerged:
 
-1. **Top-Paying Data Analyst Jobs:** TBC
-2. **Skills for Top-Paying Jobs:** TBC
+1. **Top-Paying Data Analyst Jobs:** Text TBCs
+2. **Skills for Top-Paying Jobs:** Text TBC
 3.  **Top Demanded Skills for Data Analyst Jobs:** SQL, Python, and Tableau dominate demand, while Go, Hadoop, and Snowflake lead in salary potential.
 Traditional skills like Excel and PowerPoint are widely required but offer lower pay, emphasizing the need for specialisation.
 Cloud platforms (AWS, Azure) and data engineering tools (Snowflake, Hadoop) are emerging as lucrative career paths in data analytics.
-4.  **Top-Paying skills for Data Analyst Jobs:** TBC
+4.  **Top-Paying skills for Data Analyst Jobs:** Text TBC
 5.  **Most Optimal Skills To Learn for Top-Paying Data Analyst jobs:** While Python and Tableau have the highest demand, specialized skills like Go and Confluence command the highest salaries. The insights suggest that emerging or niche skills can offer better compensation, while widely used tools remain essential but more competitive in pay.
 
 
