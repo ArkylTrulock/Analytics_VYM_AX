@@ -209,13 +209,15 @@ WITH top_demanded_skills AS(
         sd.skill_id
     ORDER BY
         demand_count DESC
-        -- avg_yearly_sal DESC
+        --avg_yearly_sal DESC
 )
 SELECT
     skills,
     skill_id,
-    formatted_count,
-    formatted_salary,
+    demand_count,
+    --formatted_count,
+    avg_yearly_sal,
+    --formatted_salary,
     count_rank,
     salary_rank  
 FROM
@@ -264,16 +266,16 @@ To identify the top-paying Data Analyst Skills, I filtered data analyst position
 *The query highlights the high paying skills in the field.*
 
 ```sql
-WITH top_paying_skills AS(
+WITH top_demanded_skills AS(
     SELECT
-        sd.skills AS skills,
-        sd.skill_id AS skill_id,
-        COUNT(sjd.job_id) AS demand_count,
-        TO_CHAR(COUNT(sjd.job_id), 'FM999,999,999') AS formatted_count,
-        ROUND(AVG(jpf.salary_year_avg),0) AS avg_yearly_sal,
-        TO_CHAR(ROUND(AVG(salary_year_avg), 0),'FM999,999,999') AS formatted_salary,
-        RANK() OVER (ORDER BY (ROUND(COUNT(sjd.job_id)),0) DESC) AS count_rank,
-        RANK() OVER (ORDER BY ROUND(AVG(jpf.salary_year_avg),0) DESC) AS salary_rank
+    sd.skills AS skills,
+    sd.skill_id AS skill_id,
+    COUNT(sjd.job_id) AS demand_count,
+    TO_CHAR(COUNT(sjd.job_id), 'FM999,999,999') AS formatted_count,
+    AVG(jpf.salary_year_avg) AS avg_yearly_sal,
+    TO_CHAR(ROUND(AVG(salary_year_avg), 0),'FM999,999,999') AS formatted_salary,
+    RANK() OVER (ORDER BY (ROUND(COUNT(sjd.job_id)),0) DESC) AS count_rank,
+    RANK() OVER (ORDER BY ROUND(AVG(jpf.salary_year_avg),0) DESC) AS salary_rank
     FROM 
         job_postings_fact AS jpf
     INNER JOIN 
@@ -287,20 +289,21 @@ WITH top_paying_skills AS(
     GROUP BY -- Use when aggregating (COUNT, SUM, AVG etc..)
         sd.skills,
         sd.skill_id
-    -- ORDER BY
-    --     avg_yearly_sal DESC
+    ORDER BY
+        --demand_count DESC
+        avg_yearly_sal DESC
 )
 SELECT
     skills,
     skill_id,
-    formatted_count,
-    formatted_salary,
+    demand_count,
+    --formatted_count,
+    avg_yearly_sal,
+    --formatted_salary,
     count_rank,
-    salary_rank
+    salary_rank  
 FROM
-    top_paying_skills
-ORDER BY
-    avg_yearly_sal DESC
+    top_demanded_skills
 LIMIT
     25;
 ```
@@ -380,8 +383,10 @@ WITH optimal_skills AS(
 SELECT
     skills,
     skill_id,
-    formatted_count,
-    formatted_salary,
+    demand_count,
+    --formatted_count,
+    avg_yearly_sal,
+    --formatted_salary,
     count_rank,
     salary_rank
 FROM
@@ -389,8 +394,7 @@ FROM
 -- WHERE
 --     demand_count > 10 -- Optimal skills filter
 ORDER BY
-    avg_yearly_sal DESC
-    
+    avg_yearly_sal DESC   
 LIMIT
     25;
 ```
@@ -425,12 +429,12 @@ Throughout this adventure, I've turbocharged my SQL toolkit with some serious fi
 ### Insights
 From the analysis, several insights emerged:
 
-1. **Top-Paying Data Analyst Jobs:** Text TBC...........
+1. **Top-Paying Data Analyst Jobs:** The highest-paying role is Associate Director - Data Insights at AT&T (£255,830). All listed roles are remote, highlighting flexibility in high-paying analyst jobs. Salaries range from £160,000 to £255,830, reflecting a significant £95K gap between the highest and lowest-paid positions. Additionally, SmartAsset and Get It Recruit - Information Technology appear multiple times, indicating they are key recruiters in this field.
 2. **Skills for Top-Paying Jobs:** Text TBC.............
 3.  **Top Demanded Skills for Data Analyst Jobs:** SQL, Python, and Tableau dominate demand, while Go, Hadoop, and Snowflake lead in salary potential.
 Traditional skills like Excel and PowerPoint are widely required but offer lower pay, emphasizing the need for specialisation.
 Cloud platforms (AWS, Azure) and data engineering tools (Snowflake, Hadoop) are emerging as lucrative career paths in data analytics.
-4.  **Top-Paying skills for Data Analyst Jobs:** Text TBC
+4.  **Top-Paying skills for Data Analyst Jobs:** PySpark is the highest-paying skill (£208,172), followed by Bitbucket (£189,154). Niche skills like Couchbase, Watson, and DataRobot offer salaries above £150K despite low demand. In contrast, high-demand skills like Pandas (£151,821) and Databricks (£141,907) offer mid-tier pay. Big data and cloud technologies dominate, with PySpark, Elasticsearch, Kubernetes, GCP, and PostgreSQL being key. Additionally, AI/ML skills such as Watson, Scikit-learn, and DataRobot command strong salaries.
 5.  **Most Optimal Skills To Learn for Top-Paying Data Analyst jobs:** While Python and Tableau have the highest demand, specialized skills like Go and Confluence command the highest salaries. The insights suggest that emerging or niche skills can offer better compensation, while widely used tools remain essential but more competitive in pay.
 
 
