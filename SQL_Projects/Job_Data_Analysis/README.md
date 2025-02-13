@@ -430,7 +430,7 @@ Throughout this adventure, I've turbocharged my SQL toolkit with some serious fi
 From the analysis, several insights emerged:
 
 1. **Top-Paying Data Analyst Jobs:** The highest-paying role is Associate Director - Data Insights at AT&T (£255,830). All listed roles are remote, highlighting flexibility in high-paying analyst jobs. Salaries range from £160,000 to £255,830, reflecting a significant £95K gap between the highest and lowest-paid positions. Additionally, SmartAsset and Get It Recruit - Information Technology appear multiple times, indicating they are key recruiters in this field.
-2. **Skills for Top-Paying Jobs:** Text TBC.............
+2. **Skills for Top-Paying Jobs:** Text TBC 
 3.  **Top Demanded Skills for Data Analyst Jobs:** SQL, Python, and Tableau dominate demand, while Go, Hadoop, and Snowflake lead in salary potential.
 Traditional skills like Excel and PowerPoint are widely required but offer lower pay, emphasizing the need for specialisation.
 Cloud platforms (AWS, Azure) and data engineering tools (Snowflake, Hadoop) are emerging as lucrative career paths in data analytics.
