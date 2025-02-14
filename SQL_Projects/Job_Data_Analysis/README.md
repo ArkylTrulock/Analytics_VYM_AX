@@ -40,12 +40,12 @@ WITH top_paying_jobs AS(
       jpf.job_posted_date::date AS date_job_posted,
       jpf.job_id,
       jpf.job_title,
-      jpf.job_title_short,
+      job_title_short,
       jpf.job_location,
       jpf.job_schedule_type,
       jpf.job_health_insurance,
       jpf.salary_year_avg,
-      TO_CHAR(ROUND(jpf.salary_year_avg, 0),'FM999,999,999') AS formatted_salary,
+      TO_CHAR(ROUND(jpf.salary_year_avg, 0),'FM999,999,999') AS formatted_salary, -- '999,999,999' ensures the number has thousands separators. FM (Fill Mode) removes leading spaces.
       RANK() OVER (ORDER BY jpf.salary_year_avg DESC) AS salary_rank,
       CASE
           WHEN jpf.job_location = 'Anywhere' THEN 'Remote'
@@ -73,9 +73,10 @@ SELECT
   date_job_posted,
   job_id,
   job_title,
-  job_health_insurance,
   location_category,
-  formatted_salary,
+  job_health_insurance,
+  salary_year_avg,
+  --formatted_salary,
   salary_quote,
   salary_rank
 FROM
