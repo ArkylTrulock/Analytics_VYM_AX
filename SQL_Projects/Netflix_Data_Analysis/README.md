@@ -94,6 +94,7 @@ ORDER BY
 ### Dataframe
 ![Count And Percentange Of Types Of Netflix Media - Table](Assets/SQL_1_The_Count_And_Percentage_Of_Types_Of_Netflix_Media.png)
 *Generated using seaborn library*
+
 ### Pie Chart
 ![Count And Percentange Of Types Of Netflix Media - Pie Chart](Assets/SQL_1_Count_And_Percentage_Of_Types_Of_Netflix_Media_Pie_Chart.png)
 *Generated using seaborn library*
