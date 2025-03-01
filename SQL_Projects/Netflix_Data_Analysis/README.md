@@ -34,7 +34,7 @@ Each query for this project aimed at investigating specific aspects of the Netfl
 Here's how I approached each question:
 
 
-### 1. 💰The Count And Percentage Of Types Of Netflix Media[.sql](/SQL_Projects/PostgreSQL/SQL_Projects/Netflix_Data_Analysis/1_The_Count_And_Percentage_Of_Types_Of_Netflix_Media.sql)
+### 1. 💰The Count And Percentage Of Types Of Netflix Media[.sql](1_The_Count_And_Percentage_Of_Types_Of_Netflix_Media.sql)
 To identify the Count And Percentage Of The Types Of Netflix Media, I filtered `TBC` by `TBC` , `TBC` and `TBC`, focusing on `TBC`. 
 
 *This query highlights the TBC.*
