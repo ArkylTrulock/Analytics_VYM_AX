@@ -8,7 +8,7 @@ Driven by a quest to navigate the data analyst job market more effectively, this
 
 ### The questions i wanted to answer through my SQL queries were:
 
-1. Wat are the top-paying data analyst jobs?
+1. What are the top-paying data analyst jobs?
 2. What skills are required for these top paying jobs?
 3. What skills are most in demand for data analysts?
 4. Which skills are associated with higher salaries?
@@ -104,7 +104,7 @@ Predominantly Remote Jobs: All roles listed are remote, indicating flexibility i
 **Salary Distribution:** Salaries range from £160,000 to £255,830, showing a significant gap (~£95K) between the highest and lowest-paid roles.
 Multiple Entries: SmartAsset and Get It Recruit - Information Technology appear multiple times, suggesting they are major recruiters in this space.
 
-**Common Job Titles:** Principal Data Analyst, Data Analyst, and Senior Data Analyst appear frequently, emphasizing demand for experienced professionals.
+**Common Job Titles:** Principal Data Analyst, Data Analyst, and Senior Data Analyst appear frequently, emphasising demand for experienced professionals.
 
 ### Trends & Implications:
 
@@ -258,7 +258,7 @@ Cloud platforms (Azure, AWS) and data engineering skills (Hadoop, SQL Server) ar
 
 ### Actionable Takeaways
 If aiming for high demand, focus on SQL, Excel, Python, and Tableau.
-If prioritizing salary growth, consider specializing in Hadoop, Snowflake, Go, or cloud platforms like AWS/Azure.
+If prioritising salary growth, consider specialising in Hadoop, Snowflake, Go, or cloud platforms like AWS/Azure.
 Develop a combination of high-demand and high-paying skills for the best career prospects in data analytics.
 
 ### 4. 💰Top 25 Top-Paying Data Analyst Skills In 2023[.sql](4_top_paying_skills.sql)
@@ -341,7 +341,7 @@ High-Paying Skills Aren't Always Popular: The highest salaries often belong to r
 
 ### Actionable Takeaways:
 
-**Master Niche Technologies:** Specializing in PySpark, Bitbucket, or AI-driven platforms can unlock six-figure salaries.
+**Master Niche Technologies:** Specialising in PySpark, Bitbucket, or AI-driven platforms can unlock six-figure salaries.
 
 **Go Beyond Python Basics:** Pair Pandas & Numpy with PySpark, Databricks, and cloud-based data processing to boost earning potential.
 
@@ -433,7 +433,7 @@ From the analysis, several insights emerged:
 1. **Top-Paying Data Analyst Jobs:** The highest-paying role is Associate Director - Data Insights at AT&T (£255,830). All listed roles are remote, highlighting flexibility in high-paying analyst jobs. Salaries range from £160,000 to £255,830, reflecting a significant £95K gap between the highest and lowest-paid positions. Additionally, SmartAsset and Get It Recruit - Information Technology appear multiple times, indicating they are key recruiters in this field.
 2. **Skills for Top-Paying Jobs:** Text TBC Soon!
 3.  **Top Demanded Skills for Data Analyst Jobs:** SQL, Python, and Tableau dominate demand, while Go, Hadoop, and Snowflake lead in salary potential.
-Traditional skills like Excel and PowerPoint are widely required but offer lower pay, emphasizing the need for specialisation.
+Traditional skills like Excel and PowerPoint are widely required but offer lower pay, emphasising the need for specialisation.
 Cloud platforms (AWS, Azure) and data engineering tools (Snowflake, Hadoop) are emerging as lucrative career paths in data analytics.
 4.  **Top-Paying skills for Data Analyst Jobs:** PySpark is the highest-paying skill (£208,172), followed by Bitbucket (£189,154). Niche skills like Couchbase, Watson, and DataRobot offer salaries above £150K despite low demand. In contrast, high-demand skills like Pandas (£151,821) and Databricks (£141,907) offer mid-tier pay. Big data and cloud technologies dominate, with PySpark, Elasticsearch, Kubernetes, GCP, and PostgreSQL being key. Additionally, AI/ML skills such as Watson, Scikit-learn, and DataRobot command strong salaries.
 5.  **Most Optimal Skills To Learn for Top-Paying Data Analyst jobs:** While Python and Tableau have the highest demand, specialized skills like Go and Confluence command the highest salaries. The insights suggest that emerging or niche skills can offer better compensation, while widely used tools remain essential but more competitive in pay.
