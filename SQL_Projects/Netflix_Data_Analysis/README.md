@@ -1197,7 +1197,7 @@ FROM
 **TBC:**
 
 
-### 13. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Countries By TV Show Count[.sql](12_Top_10_Countries_By_TV_Show_Count.sql)
+### 13. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Countries By TV Show Count[.sql](13_Top_10_Countries_By_TV_Show_Count.sql)
 To identify the Count, Percentage, Previous Count, Percentage Change & Count Rank the following functions were used: `COUNT`, `GROUP BY`, `LAG` and `DENSE_RANK`.
 
 *This query highlights The Top 10 Countries By TV Show Count.*
