@@ -8,7 +8,7 @@ TBC.
 
 ### The questions i wanted to answer through my SQL queries were:
 
-1. TBC?
+1. What are the types of Netflix Media?
 2. TBC?
 3. TBC?
 4. TBC?
@@ -35,7 +35,7 @@ Here's how I approached each question:
 
 
 ### 1. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of Types Of Netflix Media[.sql](1_The_Count_And_Percentage_Of_Types_Of_Netflix_Media.sql)
-To identify the Count, Percentage, Previous Count, Percentage Change & Count Rank Of The Types Of Netflix Media filtered, I used `COUNT`, `GROUP BY`, `LAG` and `DENSE_RANK`.
+To identify the Count, Percentage, Previous Count, Percentage Change & Count Rank Of The Types Of Netflix Media the following were used: `COUNT`, `GROUP BY`, `LAG` and `DENSE_RANK`.
 
 *This query highlights the types of Netflix Media.*
 
