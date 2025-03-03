@@ -1,9 +1,12 @@
--- The Types Of Neflix Media.
+-- Director Name Given And Name Not Given
 
-WITH movie_type AS (
+WITH director_name AS (
     SELECT
-        type,
-        COUNT(type) AS count --(*) counts all rows in a table, including rows with NULL values.
+        CASE
+            WHEN director = 'Not Given' THEN 'Name Not Given'
+            ELSE 'Name Given'
+        END AS director_formatted,
+        COUNT(director) AS count --(*) counts all rows in a table, including rows with NULL values.
     FROM 
         netflix_data
     --WHERE
@@ -12,30 +15,32 @@ WITH movie_type AS (
         --director
         --AND
         --country
-    GROUP BY 
-        type
+    GROUP BY
+        director_formatted
 ),
 count_formatted AS (
     SELECT
-        type,
+        director_formatted,
         count,
         TO_CHAR(count, 'FM999,999,999') AS formatted_count,
-        ROUND((count * 100.0) / SUM(count) OVER (), 2) AS percentage
-        --RANK() OVER (ORDER BY count DESC) AS count_rank
+        ROUND((count * 100.0) / SUM(count) OVER (), 2) AS percentage,
+        RANK() OVER (ORDER BY count DESC) AS count_rank
     FROM 
-        movie_type
+        director_name
     --ORDER BY 
         --count ASC
         --count DESC
 )
 --SELECT
-    --type,
+    --director_formatted,
     --count,
-    --ROUND((count * 100.0) / SUM(count) OVER (), 2) AS percentage
-    --RANK() OVER (ORDER BY count DESC) AS count_rank
+    --formatted_count,
+    --percentage,
+    --count_rank
 SELECT
-    type,
+    director_formatted,
     count,
+    --formatted_count
     ROUND((count * 100.0) / SUM(count) OVER (), 2) AS percentage,
     COALESCE(LAG(count) OVER (ORDER BY count DESC), 0) AS prev_count,  -- Replacing NULL with 0,
     CASE 
@@ -47,24 +52,24 @@ SELECT
 FROM 
     count_formatted
 ORDER BY
-    --count ASC 
+    --count ASC
     count DESC
 
 [
   {
-    "type": "Movie",
-    "count": "6126",
-    "percentage": "69.69",
+    "director_formatted": "Name Given",
+    "count": "6202",
+    "percentage": "70.56",
     "prev_count": "0",
     "percentage_change": "0",
     "count_rank": "1"
   },
   {
-    "type": "TV Show",
-    "count": "2664",
-    "percentage": "30.31",
-    "prev_count": "6126",
-    "percentage_change": "-56.51",
+    "director_formatted": "Name Not Given",
+    "count": "2588",
+    "percentage": "29.44",
+    "prev_count": "6202",
+    "percentage_change": "-58.27",
     "count_rank": "2"
   }
 ]
