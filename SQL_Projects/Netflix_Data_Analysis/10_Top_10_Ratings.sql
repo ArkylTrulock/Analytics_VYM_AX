@@ -1,4 +1,4 @@
--- Top 10 Ratings.
+-- Top 10 Ratings..
 
 WITH ratings AS (
     SELECT
