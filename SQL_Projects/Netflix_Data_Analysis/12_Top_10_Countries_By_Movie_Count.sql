@@ -1,4 +1,4 @@
--- Top 10 Countries By Movie Count.
+-- Top 10 Countries By Movie Count..
 
 WITH countries_movie AS (
     SELECT

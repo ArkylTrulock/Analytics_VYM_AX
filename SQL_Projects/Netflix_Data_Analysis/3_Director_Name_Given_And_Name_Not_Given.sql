@@ -1,4 +1,4 @@
--- Director Name Given And Name Not Given.
+-- Director Name Given And Name Not Given..
 
 WITH director_name AS (
     SELECT

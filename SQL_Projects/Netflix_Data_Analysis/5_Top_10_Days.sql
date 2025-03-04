@@ -1,4 +1,4 @@
--- Top 10 Days..
+-- Top 10 Days.
 
 WITH release_days AS (
     SELECT

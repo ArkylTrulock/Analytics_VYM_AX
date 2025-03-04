@@ -1,4 +1,4 @@
--- Top 10 Release Years.
+-- Top 10 Release Years..
 
 WITH release_years AS (
     SELECT
