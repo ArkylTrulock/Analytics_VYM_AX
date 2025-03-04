@@ -1,10 +1,10 @@
 # Introduction 
-TBC.
+This project explores Netflix's vast content library using SQL queries to uncover key insights about media types, top directors, release trends, and geographic distribution. By analyzing structured data, I aim to highlight patterns in content production and distribution over time.
 
 SQL queries? Check them out here: [sql_projects_folder](/SQL_Projects/)
 
 # Background
-TBC.
+Netflix hosts a diverse range of content spanning multiple genres, formats, and regions. Understanding trends in media types, top contributors, and release patterns can provide valuable insights into how content is curated and consumed.
 
 ### The questions i wanted to answer through my SQL queries were:
 
@@ -114,16 +114,16 @@ ORDER BY
 
 ### Trends & Implications:
 
-**I** The sharp drop in TV Shows suggests a shift in content strategy, possibly favoring movies over series.
+**I:** The sharp drop in TV Shows suggests a shift in content strategy, possibly favoring movies over series.
 
-**II** Netflix may be focusing more on feature films, potentially due to audience preferences or production costs.
+**II:** Netflix may be focusing more on feature films, potentially due to audience preferences or production costs.
 
 
 ### Actionable Takeaways:
 
-**I** Further analysis is needed to understand whether this trend aligns with viewership demand.
+**I:** Further analysis is needed to understand whether this trend aligns with viewership demand.
 
-**II** Content strategy adjustments may be required to balance TV Show offerings if audience engagement remains high.
+**II:** Content strategy adjustments may be required to balance TV Show offerings if audience engagement remains high.
 
 
 ### 2. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Directors[.sql](2_Top_10_Directors.sql)
@@ -188,23 +188,23 @@ FROM
 
 ### Key Insights & Interpretations:
 
-**I** A staggering 94.90% of media entries have no director information, indicating incomplete metadata.
+**I:** A staggering 94.90% of media entries have no director information, indicating incomplete metadata.
 
-**II** The most credited director, Rajiv Chilaka, has seen a sharp 99.23% decline in count compared to the previous dataset.
+**II:** The most credited director, Rajiv Chilaka, has seen a sharp 99.23% decline in count compared to the previous dataset.
 
 
 ### Trends & Implications:
 
-**I** The lack of director attribution may affect content discovery, credibility, and analytics on directorial influence.
+**I:** The lack of director attribution may affect content discovery, credibility, and analytics on directorial influence.
 
 **II:** The decline in counts for most directors suggests possible content removals or shifts in production focus.
 
 
 ### Actionable Takeaways:
 
-**I** Improving metadata completeness should be a priority to enhance data accuracy and insights.
+**I:** Improving metadata completeness should be a priority to enhance data accuracy and insights.
 
-**II** Further analysis is needed to determine if director-related trends impact audience engagement.
+**II:** Further analysis is needed to determine if director-related trends impact audience engagement.
 
 
 ### 3. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of Director Name Given And Name Not Given[.sql](3_Director_Name_Given_And_Name_Not_Given.sql)
@@ -282,23 +282,23 @@ ORDER BY
 
 ### Key Insights & Interpretations:
 
-**I** 70.56% of Netflix content now has a named director, improving metadata completeness.
+**I:** 70.56% of Netflix content now has a named director, improving metadata completeness.
 
-**II** Having more named directors allows for better content analysis and categorization.
+**II:** Having more named directors allows for better content analysis and categorization.
 
 
 ### Trends & Implications:
 
-**I** This improvement suggests an effort to enhance content metadata accuracy.
+**I:** This improvement suggests an effort to enhance content metadata accuracy.
 
-**II** Having more named directors allows for better content analysis and categorization.
+**II:** Having more named directors allows for better content analysis and categorization.
 
 
 ### Actionable Takeaways:
 
 **I:** Further investigation can reveal if specific genres or regions still lack director attribution.
 
-**II:** Ensuring complete metadata should remain a priority to maximize content discoverability and analytics.
+**II:** Ensuring complete metadata should remain a priority to maximise content discoverability and analytics.
 
 
 ### 4. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Directors excluding director Not Given[.sql](4_Top_10_Directors_Excluding_director_Not_Given.sql)
@@ -368,23 +368,23 @@ FROM
 
 ### Key Insights & Interpretations:
 
-**I** Rajiv Chilaka leads with 13.25% of the attributed content, making him the most frequently credited director.
+**I:** Rajiv Chilaka leads with 13.25% of the attributed content, making him the most frequently credited director.
 
 **II:** Several top directors, including Raúl Campos & Jan Suter, have seen slight declines in their content count.
 
 
 ### Trends & Implications:
 
-**I** The dominance of a few directors suggests that Netflix may have repeat collaborations with certain filmmakers.
+**I:** The dominance of a few directors suggests that Netflix may have repeat collaborations with certain filmmakers.
 
-**II** The presence of renowned names like Martin Scorsese highlights a mix of mainstream and niche content.
+**II:** The presence of renowned names like Martin Scorsese highlights a mix of mainstream and niche content.
 
 
 ### Actionable Takeaways:
 
-**I** Further analysis is needed to determine if certain genres or regions drive these top director counts.
+**I:** Further analysis is needed to determine if certain genres or regions drive these top director counts.
 
-**II** Monitoring trends in director contributions can offer insights into Netflix’s evolving content strategy
+**II:** Monitoring trends in director contributions can offer insights into Netflix’s evolving content strategy
 
 
 ### 5. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Days[.sql](5_Top_10_Days.sql)
@@ -496,23 +496,23 @@ ORDER BY
 
 ### Key Insights & Interpretations:
 
-**I** Friday has the highest content count at 28.41%, indicating it’s the most active day for releases.
+**I:** Friday has the highest content count at 28.41%, indicating it’s the most active day for releases.
 
-**II** Saturday and Sunday see the lowest counts, suggesting reduced content activity on weekends.
+**II:** Saturday and Sunday see the lowest counts, suggesting reduced content activity on weekends.
 
 
 ### Trends & Implications:
 
-**I** The gradual increase from Monday to Thursday suggests a buildup towards Friday’s peak.
+**I:** The gradual increase from Monday to Thursday suggests a buildup towards Friday’s peak.
 
-**II** The sharp drop after Friday implies a strategic pause in releases over the weekend.
+**II:** The sharp drop after Friday implies a strategic pause in releases over the weekend.
 
 
 ### Actionable Takeaways:
 
-**I** Netflix could explore increasing weekend releases to balance engagement throughout the week.
+**I:** Netflix could explore increasing weekend releases to balance engagement throughout the week.
 
-**II** Further analysis could determine if content released on specific days performs better in viewership.
+**II:** Further analysis could determine if content released on specific days performs better in viewership.
 
 
 ### 6. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Months[.sql](6_Top_10_Months.sql)
@@ -580,31 +580,29 @@ ORDER BY
 
 ### Key Insights & Interpretations:
 
-**TBC:** 
+**I:** 
 
-**TBC:** 
+**II:** 
 
-**TBC:**
+**III:**
 
 
 ### Trends & Implications:
 
-**TBC:**
+**I:** 
 
-**TBC:** 
+**II:** 
 
-**TBC:**
+**III:**
 
 
 ### Actionable Takeaways:
 
-**TBC:**
+**I:** 
 
-**TBC:**
+**II:** 
 
-**TBC:** 
-
-**TBC:**
+**III:**
 
 
 ### 7. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Quarters[.sql](7_Top_10_Quarters.sql)
@@ -676,31 +674,29 @@ ORDER BY
 
 ### Key Insights & Interpretations:
 
-**TBC:** 
+**I:** 
 
-**TBC:** 
+**II:** 
 
-**TBC:**
+**III:**
 
 
 ### Trends & Implications:
 
-**TBC:**
+**I:** 
 
-**TBC:** 
+**II:** 
 
-**TBC:**
+**III:**
 
 
 ### Actionable Takeaways:
 
-**TBC:**
+**I:** 
 
-**TBC:**
+**II:** 
 
-**TBC:** 
-
-**TBC:**
+**III:**
 
 
 ### 8. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Release Years[.sql](8_Top_10_Release_Years.sql)
@@ -768,31 +764,29 @@ ORDER BY
 
 ### Key Insights & Interpretations:
 
-**TBC:** 
+**I:** 
 
-**TBC:** 
+**II:** 
 
-**TBC:**
+**III:**
 
 
 ### Trends & Implications:
 
-**TBC:**
+**I:** 
 
-**TBC:** 
+**II:** 
 
-**TBC:**
+**III:**
 
 
 ### Actionable Takeaways:
 
-**TBC:**
+**I:** 
 
-**TBC:**
+**II:** 
 
-**TBC:** 
-
-**TBC:**
+**III:**
 
 
 ### 9. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Release Years And Quarters[.sql](9_Top_10_Release_Years_And_Quarters.sql)
@@ -865,31 +859,29 @@ ORDER BY
 
 ### Key Insights & Interpretations:
 
-**TBC:** 
+**I:** 
 
-**TBC:** 
+**II:** 
 
-**TBC:**
+**III:**
 
 
 ### Trends & Implications:
 
-**TBC:**
+**I:** 
 
-**TBC:** 
+**II:** 
 
-**TBC:**
+**III:**
 
 
 ### Actionable Takeaways:
 
-**TBC:**
+**I:** 
 
-**TBC:**
+**II:** 
 
-**TBC:** 
-
-**TBC:**
+**III:**
 
 
 ### 10. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Ratings[.sql](10_Top_10_Ratings.sql)
@@ -954,31 +946,29 @@ FROM
 
 ### Key Insights & Interpretations:
 
-**TBC:** 
+**I:** 
 
-**TBC:** 
+**II:** 
 
-**TBC:**
+**III:**
 
 
 ### Trends & Implications:
 
-**TBC:**
+**I:** 
 
-**TBC:** 
+**II:** 
 
-**TBC:**
+**III:**
 
 
 ### Actionable Takeaways:
 
-**TBC:**
+**I:** 
 
-**TBC:**
+**II:** 
 
-**TBC:** 
-
-**TBC:**
+**III:**
 
 
 ### 11. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Countries[.sql](11_Top_10_Countries.sql)
@@ -1041,31 +1031,29 @@ FROM
 
 ### Key Insights & Interpretations:
 
-**TBC:** 
+**I:** 
 
-**TBC:** 
+**II:** 
 
-**TBC:**
+**III:**
 
 
 ### Trends & Implications:
 
-**TBC:**
+**I:** 
 
-**TBC:** 
+**II:** 
 
-**TBC:**
+**III:**
 
 
 ### Actionable Takeaways:
 
-**TBC:**
+**I:** 
 
-**TBC:**
+**II:** 
 
-**TBC:** 
-
-**TBC:**
+**III:**
 
 
 ### 12. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Countries By Movie Count[.sql](12_Top_10_Countries_By_Movie_Count.sql)
@@ -1130,31 +1118,29 @@ FROM
 
 ### Key Insights & Interpretations:
 
-**TBC:** 
+**I:** 
 
-**TBC:** 
+**II:** 
 
-**TBC:**
+**III:**
 
 
 ### Trends & Implications:
 
-**TBC:**
+**I:** 
 
-**TBC:** 
+**II:** 
 
-**TBC:**
+**III:**
 
 
 ### Actionable Takeaways:
 
-**TBC:**
+**I:** 
 
-**TBC:**
+**II:** 
 
-**TBC:** 
-
-**TBC:**
+**III:**
 
 
 ### 13. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Countries By TV Show Count[.sql](13_Top_10_Countries_By_TV_Show_Count.sql)
@@ -1219,31 +1205,29 @@ FROM
 
 ### Key Insights & Interpretations:
 
-**TBC:** 
+**I:** 
 
-**TBC:** 
+**II:** 
 
-**TBC:**
+**III:**
 
 
 ### Trends & Implications:
 
-**TBC:**
+**I:** 
 
-**TBC:** 
+**II:** 
 
-**TBC:**
+**III:**
 
 
 ### Actionable Takeaways:
 
-**TBC:**
+**I:** 
 
-**TBC:**
+**II:** 
 
-**TBC:** 
-
-**TBC:**
+**III:**
 
 
 
