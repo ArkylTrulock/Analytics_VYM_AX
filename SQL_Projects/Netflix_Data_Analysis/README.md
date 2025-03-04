@@ -107,31 +107,23 @@ ORDER BY
 
 ### Key Insights & Interpretations:
 
-**TBC:** 
+**I:** Movies dominate the Netflix library, making up nearly 70% of the content.
 
-**TBC:** 
-
-**TBC:**
+**II:** TV Shows have seen a significant decline of 56.51% compared to the previous count.
 
 
 ### Trends & Implications:
 
-**TBC:**
+**I** The sharp drop in TV Shows suggests a shift in content strategy, possibly favoring movies over series.
 
-**TBC:** 
-
-**TBC:**
+**II** Netflix may be focusing more on feature films, potentially due to audience preferences or production costs.
 
 
 ### Actionable Takeaways:
 
-**TBC:**
+**I** Further analysis is needed to understand whether this trend aligns with viewership demand.
 
-**TBC:**
-
-**TBC:** 
-
-**TBC:**
+**II** Content strategy adjustments may be required to balance TV Show offerings if audience engagement remains high.
 
 
 ### 2. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Directors[.sql](2_Top_10_Directors.sql)
@@ -196,31 +188,23 @@ FROM
 
 ### Key Insights & Interpretations:
 
-**TBC:** 
+**I** A staggering 94.90% of media entries have no director information, indicating incomplete metadata.
 
-**TBC:** 
-
-**TBC:**
+**II** The most credited director, Rajiv Chilaka, has seen a sharp 99.23% decline in count compared to the previous dataset.
 
 
 ### Trends & Implications:
 
-**TBC:**
+**I** The lack of director attribution may affect content discovery, credibility, and analytics on directorial influence.
 
-**TBC:** 
-
-**TBC:**
+**II:** The decline in counts for most directors suggests possible content removals or shifts in production focus.
 
 
 ### Actionable Takeaways:
 
-**TBC:**
+**I** Improving metadata completeness should be a priority to enhance data accuracy and insights.
 
-**TBC:**
-
-**TBC:** 
-
-**TBC:**
+**II** Further analysis is needed to determine if director-related trends impact audience engagement.
 
 
 ### 3. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of Director Name Given And Name Not Given[.sql](3_Director_Name_Given_And_Name_Not_Given.sql)
@@ -298,31 +282,23 @@ ORDER BY
 
 ### Key Insights & Interpretations:
 
-**TBC:** 
+**I** 70.56% of Netflix content now has a named director, improving metadata completeness.
 
-**TBC:** 
-
-**TBC:**
+**II** Having more named directors allows for better content analysis and categorization.
 
 
 ### Trends & Implications:
 
-**TBC:**
+**I** This improvement suggests an effort to enhance content metadata accuracy.
 
-**TBC:** 
-
-**TBC:**
+**II** Having more named directors allows for better content analysis and categorization.
 
 
 ### Actionable Takeaways:
 
-**TBC:**
+**I:** Further investigation can reveal if specific genres or regions still lack director attribution.
 
-**TBC:**
-
-**TBC:** 
-
-**TBC:**
+**II:** Ensuring complete metadata should remain a priority to maximize content discoverability and analytics.
 
 
 ### 4. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Directors excluding director Not Given[.sql](4_Top_10_Directors_Excluding_director_Not_Given.sql)
@@ -392,31 +368,23 @@ FROM
 
 ### Key Insights & Interpretations:
 
-**TBC:** 
+**I** Rajiv Chilaka leads with 13.25% of the attributed content, making him the most frequently credited director.
 
-**TBC:** 
-
-**TBC:**
+**II:** Several top directors, including Raúl Campos & Jan Suter, have seen slight declines in their content count.
 
 
 ### Trends & Implications:
 
-**TBC:**
+**I** The dominance of a few directors suggests that Netflix may have repeat collaborations with certain filmmakers.
 
-**TBC:** 
-
-**TBC:**
+**II** The presence of renowned names like Martin Scorsese highlights a mix of mainstream and niche content.
 
 
 ### Actionable Takeaways:
 
-**TBC:**
+**I** Further analysis is needed to determine if certain genres or regions drive these top director counts.
 
-**TBC:**
-
-**TBC:** 
-
-**TBC:**
+**II** Monitoring trends in director contributions can offer insights into Netflix’s evolving content strategy
 
 
 ### 5. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Days[.sql](5_Top_10_Days.sql)
@@ -528,31 +496,23 @@ ORDER BY
 
 ### Key Insights & Interpretations:
 
-**TBC:** 
+**I** Friday has the highest content count at 28.41%, indicating it’s the most active day for releases.
 
-**TBC:** 
-
-**TBC:**
+**II** Saturday and Sunday see the lowest counts, suggesting reduced content activity on weekends.
 
 
 ### Trends & Implications:
 
-**TBC:**
+**I** The gradual increase from Monday to Thursday suggests a buildup towards Friday’s peak.
 
-**TBC:** 
-
-**TBC:**
+**II** The sharp drop after Friday implies a strategic pause in releases over the weekend.
 
 
 ### Actionable Takeaways:
 
-**TBC:**
+**I** Netflix could explore increasing weekend releases to balance engagement throughout the week.
 
-**TBC:**
-
-**TBC:** 
-
-**TBC:**
+**II** Further analysis could determine if content released on specific days performs better in viewership.
 
 
 ### 6. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Months[.sql](6_Top_10_Months.sql)
