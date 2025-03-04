@@ -1,4 +1,4 @@
--- Top 10 Countries
+-- Top 10 Countries.
 
 WITH countries AS (
     SELECT

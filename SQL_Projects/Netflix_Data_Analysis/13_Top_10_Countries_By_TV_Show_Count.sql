@@ -1,4 +1,4 @@
--- Top 10 Countries By TV Show Count
+-- Top 10 Countries By TV Show Count.
 
 WITH countries_tv AS (
     SELECT

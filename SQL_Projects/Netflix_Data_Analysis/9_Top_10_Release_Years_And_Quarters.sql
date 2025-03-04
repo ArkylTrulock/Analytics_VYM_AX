@@ -1,4 +1,4 @@
--- Top 10 Release Years And Quarters
+-- Top 10 Release Years And Quarters.
 
 WITH release_years_and_quarters AS (
     SELECT

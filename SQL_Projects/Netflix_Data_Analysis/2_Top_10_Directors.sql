@@ -1,4 +1,4 @@
--- Top 10 Directors
+-- Top 10 Directors.
 
 WITH directors AS (
     SELECT

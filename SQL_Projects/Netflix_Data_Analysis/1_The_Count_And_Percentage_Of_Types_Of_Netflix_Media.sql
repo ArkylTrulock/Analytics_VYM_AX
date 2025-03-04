@@ -1,4 +1,4 @@
--- The Types Of Neflix Media.
+-- The Types Of Neflix Media..
 
 WITH movie_type AS (
     SELECT

@@ -1,4 +1,4 @@
--- Top 10 Months
+-- Top 10 Months.
 
 WITH release_months AS (
     SELECT

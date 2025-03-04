@@ -1,4 +1,4 @@
--- Top 10 Directors By Count And Percentage (excluding director 'Not Given').
+-- Top 10 Directors By Count And Percentage (excluding director 'Not Given')..
 
 WITH directors_ng AS (
     SELECT

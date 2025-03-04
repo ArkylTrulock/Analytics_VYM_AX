@@ -1,4 +1,4 @@
--- Top 10 Quarters
+-- Top 10 Quarters.
 
 WITH release_quarters AS (
     SELECT
