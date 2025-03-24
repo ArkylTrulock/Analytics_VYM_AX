@@ -12,7 +12,7 @@ WITH top_paying_jobs AS(
       jpf.job_posted_date::date AS date_job_posted,
       jpf.job_id,
       jpf.job_title,
-      job_title_short,
+      jpf.job_title_short,
       jpf.job_location,
       jpf.job_schedule_type,
       jpf.job_health_insurance,
