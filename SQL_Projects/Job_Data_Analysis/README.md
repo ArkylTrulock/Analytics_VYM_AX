@@ -469,7 +469,7 @@ LIMIT
 *Generated using pandas library*
 
 ### Barplot
-![Top 25 Optimal Data Analyst Skills - Barplot](Assets/Top_25_Optimal_DA_Job_Skills_Ordered_By_Count_barplot.png)
+![Top 25 Optimal Data Analyst Skills - Barplot](Assets/Top_25_Optimal_DA_Job_Skills_Ordered_By_Salary_barplot.png)
 *Generated using seaborn library*
 
 ### General Overview
