@@ -45,6 +45,9 @@ WITH top_paying_jobs AS(
       jpf.job_schedule_type,
       jpf.job_health_insurance,
       jpf.salary_year_avg,
+      COALESCE(jpf.salary_year_avg - LAG(jpf.salary_year_avg) OVER (ORDER BY jpf.salary_year_avg DESC), 0) AS salary_year_avg_change,
+      COALESCE(ROUND(((jpf.salary_year_avg - LAG(jpf.salary_year_avg) OVER (ORDER BY jpf.salary_year_avg DESC)) 
+        / LAG(jpf.salary_year_avg) OVER (ORDER BY jpf.salary_year_avg DESC)) * 100, 2), 0) AS salary_year_avg_change_percentage,
       TO_CHAR(ROUND(jpf.salary_year_avg, 0),'FM999,999,999') AS formatted_salary, -- '999,999,999' ensures the number has thousands separators. FM (Fill Mode) removes leading spaces.
       RANK() OVER (ORDER BY jpf.salary_year_avg DESC) AS salary_rank,
       CASE
@@ -76,9 +79,11 @@ SELECT
   location_category,
   job_health_insurance,
   salary_year_avg,
+  salary_rank,
+  salary_year_avg_change,
+  salary_year_avg_change_percentage,
   --formatted_salary,
-  salary_quote,
-  salary_rank
+  salary_quote
 FROM
   top_paying_jobs
 ORDER BY
@@ -88,7 +93,7 @@ LIMIT
 ```
 
 ![Top 10 Top-Paying Data Analyst Roles - Table](Assets/Top_10_Top_Paying_Data_Analyst_Roles_In_2023.png)
-*Generated using seaborn library*
+*Generated using pandas library*
 
 ![Top 10 Top-Paying Data Analyst Roles - Barplot](Assets/Top_10_Top_paying_DA_Roles_barplot.png)
 *Generated using seaborn library*
@@ -133,14 +138,15 @@ To identify the top-paying Skills for Data Analyst roles, I filtered data analys
 ```sql
 WITH top_paying_job_skills AS(
     SELECT 
-        cd.name AS company_name,
+        cd.name AS company_name, -- cd.name is also fine
         jpf.job_posted_date::date AS date_job_posted,
         job_id,
         job_title
         job_location,
         job_schedule_type,
         job_health_insurance,
-        TO_CHAR(ROUND(salary_year_avg, 0),'FM999,999,999') AS formatted_salary,
+        salary_year_avg,
+        --TO_CHAR(ROUND(salary_year_avg, 0),'FM999,999,999') AS formatted_salary, -- '999,999,999' ensures the number has thousands separators. FM (Fill Mode) removes leading spaces.
         RANK() OVER (ORDER BY salary_year_avg DESC) AS salary_rank,
         CASE
             WHEN jpf.job_location = 'Anywhere' THEN 'Remote'
@@ -169,7 +175,6 @@ WITH top_paying_job_skills AS(
 )
 SELECT
 top_paying_job_skills.*,
-sd.skill_id,
 skills
 FROM 
     top_paying_job_skills
@@ -178,6 +183,45 @@ INNER JOIN
 INNER JOIN 
     skills_dim AS sd ON sjd.skill_id = sd.skill_id;
 ```
+
+### Dataframe
+![Top 10 Top-Paying Data Analyst Skills - Table](Assets/Top_10_Top_Paying_Data_Analyst_Job_Skills_In_2023.png)
+*Generated using pandas library*
+
+### General Overview
+The dataset showcases the Top 10 highest-paying Data Analyst jobs in 2023, highlighting salary rankings, employers, job roles, skills in demand, and benefits. The data suggests a strong preference for remote roles with full-time schedules and health insurance benefits.
+
+### Key Insights & Interpretations
+
+**AT&T** dominates, offering the highest-paying role: *Associate Director - Data Insights* **(£255,830)**.
+
+**SmartAsset follows closely**, *with Principal Data Analyst* roles averaging **£186,000**.
+
+**Recruitment agencies play a major role**, as Get It Recruit - Information Technology frequently appears.
+
+**Tech & Finance industries lead salaries**, with **Uber**, **DIRECTV**, and **Robert Half** among the top employers.
+
+**Python**, **SQL**, **Snowflake**, and **Power BI** remain the most valued skills across high-paying roles.
+
+### Trends & Implications
+
+**Remote work** is the standard for top-paying data analyst roles.
+
+**Enterprise-level roles pay significantly higher** than entry-level positions.
+
+**Cloud & Big Data skills (Azure, Snowflake, AWS, GCP) are crucial** for high salaries.
+
+**Recruitment firms are gatekeepers** to high-salary data jobs.
+
+### Actionable Takeaways
+
+**Develop Python, SQL, and cloud analytics skills** to maximize earning potential.
+
+**Target roles in finance and tech industries** for higher salaries.
+
+**Consider remote opportunities and recruitment agencies** when job hunting.
+
+**Upskill in AI-driven analytics and machine learning** to stay competitive.
 
 ### 3. 🔥Top 25 Demanded Data Analyst Skills In 2023[.sql](3_top_demanded_skills.sql)
 To identify the top demanded Data Analyst Skills, I filtered Data Analyst positions by `salary_year_avg` & `job_working_from_home` and grouped by `skills` & `skill_id`.
@@ -190,6 +234,11 @@ WITH top_demanded_skills AS(
     sd.skills AS skills,
     sd.skill_id AS skill_id,
     COUNT(sjd.job_id) AS demand_count,
+    COALESCE((COUNT(sjd.job_id) * 100.0 / SUM(COUNT(sjd.job_id)) OVER ()), 0) AS demand_count_percentage,
+    COALESCE(COUNT(sjd.job_id) - LAG(COUNT(sjd.job_id)) OVER (ORDER BY COUNT(sjd.job_id) DESC), 0) AS demand_count_change,
+    COALESCE(ROUND(((COUNT(sjd.job_id) - LAG(COUNT(sjd.job_id)) OVER (ORDER BY COUNT(sjd.job_id) DESC)) 
+        / NULLIF(LAG(COUNT(sjd.job_id)) OVER (ORDER BY COUNT(sjd.job_id) DESC)::DECIMAL, 0)) * 100, 2), 0) 
+        AS demand_count_change_percentage, -- COUNT() returns an integer. Dividing two integers may result in 0. ::DECIMAL converts to DECIMAL or FLOAT before division. 
     TO_CHAR(COUNT(sjd.job_id), 'FM999,999,999') AS formatted_count,
     AVG(jpf.salary_year_avg) AS avg_yearly_sal,
     TO_CHAR(ROUND(AVG(salary_year_avg), 0),'FM999,999,999') AS formatted_salary,
@@ -215,11 +264,14 @@ WITH top_demanded_skills AS(
 SELECT
     skills,
     skill_id,
+    demand_count_percentage,
     demand_count,
-    --formatted_count,
-    avg_yearly_sal,
-    --formatted_salary,
     count_rank,
+    demand_count_change,
+    demand_count_change_percentage,
+    --formatted_count,  
+    --formatted_salary,   
+    avg_yearly_sal,
     salary_rank  
 FROM
     top_demanded_skills
@@ -229,7 +281,7 @@ LIMIT
 
 ### Dataframe
 ![Top 25 Demanded Data Analyst Skills - Table](Assets/Top_25_Demanded_Data_Analyst_Job%20Skills_In_2023.png)
-*Generated using seaborn library*
+*Generated using pandas library*
 
 ### Barplot
 ![Top 25 Demanded Data Analyst Skills - Barplot](Assets/Top_25_Demanded_DA_Job_Skills_Ordered_By_Count_barplot.png)
@@ -274,7 +326,11 @@ WITH top_demanded_skills AS(
     COUNT(sjd.job_id) AS demand_count,
     TO_CHAR(COUNT(sjd.job_id), 'FM999,999,999') AS formatted_count,
     AVG(jpf.salary_year_avg) AS avg_yearly_sal,
-    TO_CHAR(ROUND(AVG(salary_year_avg), 0),'FM999,999,999') AS formatted_salary,
+    --COALESCE((AVG(jpf.salary_year_avg) * 100.0 / SUM(AVG(jpf.salary_year_avg)) OVER ()), 0) AS avg_yearly_sal_percentage,
+    COALESCE(AVG(jpf.salary_year_avg) - LAG(AVG(jpf.salary_year_avg)) OVER (ORDER BY AVG(jpf.salary_year_avg) DESC), 0) AS avg_yearly_sal_change,
+    COALESCE(ROUND(((AVG(jpf.salary_year_avg) - LAG(AVG(jpf.salary_year_avg)) OVER (ORDER BY AVG(jpf.salary_year_avg) DESC)) 
+        / NULLIF(LAG(AVG(jpf.salary_year_avg)) OVER (ORDER BY AVG(jpf.salary_year_avg) DESC), 0)) * 100, 2), 0) AS avg_yearly_sal_change_percentage, -- AVG() Already Returns a DECIMAL.
+    TO_CHAR(ROUND(AVG(jpf.salary_year_avg), 0),'FM999,999,999') AS formatted_salary,
     RANK() OVER (ORDER BY (ROUND(COUNT(sjd.job_id)),0) DESC) AS count_rank,
     RANK() OVER (ORDER BY ROUND(AVG(jpf.salary_year_avg),0) DESC) AS salary_rank
     FROM 
@@ -298,11 +354,14 @@ SELECT
     skills,
     skill_id,
     demand_count,
-    --formatted_count,
-    avg_yearly_sal,
-    --formatted_salary,
     count_rank,
-    salary_rank  
+    --formatted_count,
+    --avg_yearly_sal_percentage,
+    avg_yearly_sal,
+    salary_rank,
+    avg_yearly_sal_change,
+    avg_yearly_sal_change_percentage
+    --formatted_salary,     
 FROM
     top_demanded_skills
 LIMIT
@@ -311,7 +370,7 @@ LIMIT
 
 ### Dataframe
 ![Top 25 Top-Paying Data Analyst Skills - Table](Assets/Top_25_Top_Paying_Data_Analyst_Job_Skills_In_2023.png)
-*Generated using seaborn library*
+*Generated using pandas library*
 
 ### Barplot
 ![Top 25 Top-Paying Data Analyst Skills - Barplot](Assets/Top_25_Top_Paying_DA_Job_Skills_Orderd_By_Salary_barplot.png)
@@ -362,6 +421,9 @@ WITH optimal_skills AS(
         COUNT(sjd.job_id) AS demand_count,
         TO_CHAR(COUNT(sjd.job_id), 'FM999,999,999') AS formatted_count,
         ROUND(AVG(jpf.salary_year_avg),0) AS avg_yearly_sal,
+        COALESCE(AVG(jpf.salary_year_avg) - LAG(AVG(jpf.salary_year_avg)) OVER (ORDER BY AVG(jpf.salary_year_avg) DESC), 0) AS avg_yearly_sal_change,
+        COALESCE(ROUND(((AVG(jpf.salary_year_avg) - LAG(AVG(jpf.salary_year_avg)) OVER (ORDER BY AVG(jpf.salary_year_avg) DESC)) 
+        / NULLIF(LAG(AVG(jpf.salary_year_avg)) OVER (ORDER BY AVG(jpf.salary_year_avg) DESC), 0)) * 100, 2), 0) AS avg_yearly_sal_change_percentage, -- AVG() Already Returns a DECIMAL.
         TO_CHAR(ROUND(AVG(salary_year_avg), 0),'FM999,999,999') AS formatted_salary,
         RANK() OVER (ORDER BY (ROUND(COUNT(sjd.job_id)),0) DESC) AS count_rank,
         RANK() OVER (ORDER BY ROUND(AVG(jpf.salary_year_avg),0) DESC) AS salary_rank
@@ -385,11 +447,13 @@ SELECT
     skills,
     skill_id,
     demand_count,
+    count_rank,
     --formatted_count,
     avg_yearly_sal,
-    --formatted_salary,
-    count_rank,
-    salary_rank
+    salary_rank,
+    avg_yearly_sal_change,
+    avg_yearly_sal_change_percentage
+    --formatted_salary,   
 FROM
     optimal_skills
 -- WHERE
@@ -402,7 +466,7 @@ LIMIT
 
 ### Dataframe
 ![Top 25 Optimal Data Analyst Skills - Table](Assets/Top_25_Optimal_Data_Analyst_Job_Skills_In_2023.png)
-*Generated using seaborn library*
+*Generated using pandas library*
 
 ### Barplot
 ![Top 25 Optimal Data Analyst Skills - Barplot](Assets/Top_25_Optimal_DA_Job_Skills_Ordered_By_Count_barplot.png)
@@ -431,7 +495,7 @@ Throughout this adventure, I've turbocharged my SQL toolkit with some serious fi
 From the analysis, several insights emerged:
 
 1. **Top-Paying Data Analyst Jobs:** The highest-paying role is Associate Director - Data Insights at AT&T (£255,830). All listed roles are remote, highlighting flexibility in high-paying analyst jobs. Salaries range from £160,000 to £255,830, reflecting a significant £95K gap between the highest and lowest-paid positions. Additionally, SmartAsset and Get It Recruit - Information Technology appear multiple times, indicating they are key recruiters in this field.
-2. **Skills for Top-Paying Jobs:** Text TBC Soon!
+2. **Skills for Top-Paying Jobs:** High-paying data analyst roles in 2023 are dominated by remote, full-time positions in tech and finance, with Python, SQL, and cloud analytics skills being the most valued. AT&T, SmartAsset, and recruitment firms lead in offering top salaries, emphasizing the need for specialized expertise in data engineering and AI-driven analytics. To secure lucrative roles, professionals should focus on advanced analytics, cloud platforms, and industry-specific knowledge. 
 3.  **Top Demanded Skills for Data Analyst Jobs:** SQL, Python, and Tableau dominate demand, while Go, Hadoop, and Snowflake lead in salary potential.
 Traditional skills like Excel and PowerPoint are widely required but offer lower pay, emphasising the need for specialisation.
 Cloud platforms (AWS, Azure) and data engineering tools (Snowflake, Hadoop) are emerging as lucrative career paths in data analytics.
