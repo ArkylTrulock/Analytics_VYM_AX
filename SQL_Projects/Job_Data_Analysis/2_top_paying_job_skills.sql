@@ -16,7 +16,7 @@ WITH top_paying_job_skills AS(
         job_schedule_type,
         job_health_insurance,
         salary_year_avg,
-        TO_CHAR(ROUND(salary_year_avg, 0),'FM999,999,999') AS formatted_salary, -- '999,999,999' ensures the number has thousands separators. FM (Fill Mode) removes leading spaces.
+        --TO_CHAR(ROUND(salary_year_avg, 0),'FM999,999,999') AS formatted_salary, -- '999,999,999' ensures the number has thousands separators. FM (Fill Mode) removes leading spaces.
         RANK() OVER (ORDER BY salary_year_avg DESC) AS salary_rank,
         CASE
             WHEN jpf.job_location = 'Anywhere' THEN 'Remote'
@@ -44,15 +44,15 @@ WITH top_paying_job_skills AS(
         10
 )
 SELECT
-top_paying_job_skills.*, -- Select everything from cte - top_paying_jobs
-sd.skill_id,
-skills -- Select skills from skills_job_dim table
+top_paying_job_skills.*,
+skills
 FROM 
     top_paying_job_skills
 INNER JOIN 
     skills_job_dim AS sjd ON top_paying_job_skills.job_id = sjd.job_id
 INNER JOIN 
     skills_dim AS sd ON sjd.skill_id = sd.skill_id;
+
 
 [
   {
@@ -62,11 +62,10 @@ INNER JOIN
     "job_location": "Associate Director- Data Insights",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "255,830",
+    "salary_year_avg": "255829.5",
     "salary_rank": "1",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 0,
     "skills": "sql"
   },
   {
@@ -76,11 +75,10 @@ INNER JOIN
     "job_location": "Associate Director- Data Insights",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "255,830",
+    "salary_year_avg": "255829.5",
     "salary_rank": "1",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 1,
     "skills": "python"
   },
   {
@@ -90,11 +88,10 @@ INNER JOIN
     "job_location": "Associate Director- Data Insights",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "255,830",
+    "salary_year_avg": "255829.5",
     "salary_rank": "1",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 5,
     "skills": "r"
   },
   {
@@ -104,11 +101,10 @@ INNER JOIN
     "job_location": "Associate Director- Data Insights",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "255,830",
+    "salary_year_avg": "255829.5",
     "salary_rank": "1",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 74,
     "skills": "azure"
   },
   {
@@ -118,11 +114,10 @@ INNER JOIN
     "job_location": "Associate Director- Data Insights",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "255,830",
+    "salary_year_avg": "255829.5",
     "salary_rank": "1",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 75,
     "skills": "databricks"
   },
   {
@@ -132,11 +127,10 @@ INNER JOIN
     "job_location": "Associate Director- Data Insights",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "255,830",
+    "salary_year_avg": "255829.5",
     "salary_rank": "1",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 76,
     "skills": "aws"
   },
   {
@@ -146,11 +140,10 @@ INNER JOIN
     "job_location": "Associate Director- Data Insights",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "255,830",
+    "salary_year_avg": "255829.5",
     "salary_rank": "1",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 93,
     "skills": "pandas"
   },
   {
@@ -160,11 +153,10 @@ INNER JOIN
     "job_location": "Associate Director- Data Insights",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "255,830",
+    "salary_year_avg": "255829.5",
     "salary_rank": "1",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 95,
     "skills": "pyspark"
   },
   {
@@ -174,11 +166,10 @@ INNER JOIN
     "job_location": "Associate Director- Data Insights",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "255,830",
+    "salary_year_avg": "255829.5",
     "salary_rank": "1",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 102,
     "skills": "jupyter"
   },
   {
@@ -188,11 +179,10 @@ INNER JOIN
     "job_location": "Associate Director- Data Insights",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "255,830",
+    "salary_year_avg": "255829.5",
     "salary_rank": "1",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 181,
     "skills": "excel"
   },
   {
@@ -202,11 +192,10 @@ INNER JOIN
     "job_location": "Associate Director- Data Insights",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "255,830",
+    "salary_year_avg": "255829.5",
     "salary_rank": "1",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 182,
     "skills": "tableau"
   },
   {
@@ -216,11 +205,10 @@ INNER JOIN
     "job_location": "Associate Director- Data Insights",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "255,830",
+    "salary_year_avg": "255829.5",
     "salary_rank": "1",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 183,
     "skills": "power bi"
   },
   {
@@ -230,11 +218,10 @@ INNER JOIN
     "job_location": "Associate Director- Data Insights",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "255,830",
+    "salary_year_avg": "255829.5",
     "salary_rank": "1",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 196,
     "skills": "powerpoint"
   },
   {
@@ -244,11 +231,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst (Remote)",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "205,000",
+    "salary_year_avg": "205000.0",
     "salary_rank": "2",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 0,
     "skills": "sql"
   },
   {
@@ -258,11 +244,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst (Remote)",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "205,000",
+    "salary_year_avg": "205000.0",
     "salary_rank": "2",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 1,
     "skills": "python"
   },
   {
@@ -272,11 +257,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst (Remote)",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "205,000",
+    "salary_year_avg": "205000.0",
     "salary_rank": "2",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 8,
     "skills": "go"
   },
   {
@@ -286,11 +270,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst (Remote)",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "205,000",
+    "salary_year_avg": "205000.0",
     "salary_rank": "2",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 80,
     "skills": "snowflake"
   },
   {
@@ -300,11 +283,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst (Remote)",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "205,000",
+    "salary_year_avg": "205000.0",
     "salary_rank": "2",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 93,
     "skills": "pandas"
   },
   {
@@ -314,11 +296,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst (Remote)",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "205,000",
+    "salary_year_avg": "205000.0",
     "salary_rank": "2",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 94,
     "skills": "numpy"
   },
   {
@@ -328,11 +309,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst (Remote)",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "205,000",
+    "salary_year_avg": "205000.0",
     "salary_rank": "2",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 181,
     "skills": "excel"
   },
   {
@@ -342,11 +322,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst (Remote)",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "205,000",
+    "salary_year_avg": "205000.0",
     "salary_rank": "2",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 182,
     "skills": "tableau"
   },
   {
@@ -356,11 +335,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst (Remote)",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "205,000",
+    "salary_year_avg": "205000.0",
     "salary_rank": "2",
     "location_category": "Remote",
     "salary_quote": "Mid High",
-    "skill_id": 220,
     "skills": "gitlab"
   },
   {
@@ -370,11 +348,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "186,000",
+    "salary_year_avg": "186000.0",
     "salary_rank": "3",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 0,
     "skills": "sql"
   },
   {
@@ -384,11 +361,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "186,000",
+    "salary_year_avg": "186000.0",
     "salary_rank": "3",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 1,
     "skills": "python"
   },
   {
@@ -398,11 +374,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "186,000",
+    "salary_year_avg": "186000.0",
     "salary_rank": "3",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 8,
     "skills": "go"
   },
   {
@@ -412,11 +387,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "186,000",
+    "salary_year_avg": "186000.0",
     "salary_rank": "3",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 80,
     "skills": "snowflake"
   },
   {
@@ -426,11 +400,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "186,000",
+    "salary_year_avg": "186000.0",
     "salary_rank": "3",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 93,
     "skills": "pandas"
   },
   {
@@ -440,11 +413,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "186,000",
+    "salary_year_avg": "186000.0",
     "salary_rank": "3",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 94,
     "skills": "numpy"
   },
   {
@@ -454,11 +426,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "186,000",
+    "salary_year_avg": "186000.0",
     "salary_rank": "3",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 181,
     "skills": "excel"
   },
   {
@@ -468,11 +439,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "186,000",
+    "salary_year_avg": "186000.0",
     "salary_rank": "3",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 182,
     "skills": "tableau"
   },
   {
@@ -482,11 +452,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "186,000",
+    "salary_year_avg": "186000.0",
     "salary_rank": "3",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 220,
     "skills": "gitlab"
   },
   {
@@ -496,11 +465,10 @@ INNER JOIN
     "job_location": "ERM Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "184,000",
+    "salary_year_avg": "184000.0",
     "salary_rank": "4",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 0,
     "skills": "sql"
   },
   {
@@ -510,11 +478,10 @@ INNER JOIN
     "job_location": "ERM Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "184,000",
+    "salary_year_avg": "184000.0",
     "salary_rank": "4",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 1,
     "skills": "python"
   },
   {
@@ -524,11 +491,10 @@ INNER JOIN
     "job_location": "ERM Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "184,000",
+    "salary_year_avg": "184000.0",
     "salary_rank": "4",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 5,
     "skills": "r"
   },
   {
@@ -538,11 +504,10 @@ INNER JOIN
     "job_location": "DTCC Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "170,000",
+    "salary_year_avg": "170000.0",
     "salary_rank": "5",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 4,
     "skills": "java"
   },
   {
@@ -552,11 +517,10 @@ INNER JOIN
     "job_location": "DTCC Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "170,000",
+    "salary_year_avg": "170000.0",
     "salary_rank": "5",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 8,
     "skills": "go"
   },
   {
@@ -566,11 +530,10 @@ INNER JOIN
     "job_location": "DTCC Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "170,000",
+    "salary_year_avg": "170000.0",
     "salary_rank": "5",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 181,
     "skills": "excel"
   },
   {
@@ -580,11 +543,10 @@ INNER JOIN
     "job_location": "Manager, Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "167,000",
+    "salary_year_avg": "167000.0",
     "salary_rank": "6",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 0,
     "skills": "sql"
   },
   {
@@ -594,11 +556,10 @@ INNER JOIN
     "job_location": "Manager, Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "167,000",
+    "salary_year_avg": "167000.0",
     "salary_rank": "6",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 1,
     "skills": "python"
   },
   {
@@ -608,11 +569,10 @@ INNER JOIN
     "job_location": "Manager, Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "167,000",
+    "salary_year_avg": "167000.0",
     "salary_rank": "6",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 5,
     "skills": "r"
   },
   {
@@ -622,11 +582,10 @@ INNER JOIN
     "job_location": "Manager, Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "167,000",
+    "salary_year_avg": "167000.0",
     "salary_rank": "6",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 35,
     "skills": "swift"
   },
   {
@@ -636,11 +595,10 @@ INNER JOIN
     "job_location": "Manager, Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "167,000",
+    "salary_year_avg": "167000.0",
     "salary_rank": "6",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 181,
     "skills": "excel"
   },
   {
@@ -650,11 +608,10 @@ INNER JOIN
     "job_location": "Manager, Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "167,000",
+    "salary_year_avg": "167000.0",
     "salary_rank": "6",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 182,
     "skills": "tableau"
   },
   {
@@ -664,11 +621,10 @@ INNER JOIN
     "job_location": "Manager, Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "167,000",
+    "salary_year_avg": "167000.0",
     "salary_rank": "6",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 185,
     "skills": "looker"
   },
   {
@@ -678,11 +634,10 @@ INNER JOIN
     "job_location": "Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "165,000",
+    "salary_year_avg": "165000.0",
     "salary_rank": "7",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 0,
     "skills": "sql"
   },
   {
@@ -692,11 +647,10 @@ INNER JOIN
     "job_location": "Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "165,000",
+    "salary_year_avg": "165000.0",
     "salary_rank": "7",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 1,
     "skills": "python"
   },
   {
@@ -706,11 +660,10 @@ INNER JOIN
     "job_location": "Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "165,000",
+    "salary_year_avg": "165000.0",
     "salary_rank": "7",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 5,
     "skills": "r"
   },
   {
@@ -720,11 +673,10 @@ INNER JOIN
     "job_location": "Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "165,000",
+    "salary_year_avg": "165000.0",
     "salary_rank": "7",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 7,
     "skills": "sas"
   },
   {
@@ -734,11 +686,10 @@ INNER JOIN
     "job_location": "Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "165,000",
+    "salary_year_avg": "165000.0",
     "salary_rank": "7",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 15,
     "skills": "matlab"
   },
   {
@@ -748,11 +699,10 @@ INNER JOIN
     "job_location": "Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "165,000",
+    "salary_year_avg": "165000.0",
     "salary_rank": "7",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 93,
     "skills": "pandas"
   },
   {
@@ -762,11 +712,10 @@ INNER JOIN
     "job_location": "Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "165,000",
+    "salary_year_avg": "165000.0",
     "salary_rank": "7",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 182,
     "skills": "tableau"
   },
   {
@@ -776,11 +725,10 @@ INNER JOIN
     "job_location": "Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "165,000",
+    "salary_year_avg": "165000.0",
     "salary_rank": "7",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 185,
     "skills": "looker"
   },
   {
@@ -790,11 +738,10 @@ INNER JOIN
     "job_location": "Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "165,000",
+    "salary_year_avg": "165000.0",
     "salary_rank": "7",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 186,
     "skills": "sas"
   },
   {
@@ -804,11 +751,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 0,
     "skills": "sql"
   },
   {
@@ -818,11 +764,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 1,
     "skills": "python"
   },
   {
@@ -832,11 +777,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 3,
     "skills": "scala"
   },
   {
@@ -846,11 +790,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 5,
     "skills": "r"
   },
   {
@@ -860,11 +803,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 56,
     "skills": "mysql"
   },
   {
@@ -874,11 +816,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 57,
     "skills": "postgresql"
   },
   {
@@ -888,11 +829,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 65,
     "skills": "couchbase"
   },
   {
@@ -902,11 +842,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 74,
     "skills": "azure"
   },
   {
@@ -916,11 +855,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 75,
     "skills": "databricks"
   },
   {
@@ -930,11 +868,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 76,
     "skills": "aws"
   },
   {
@@ -944,11 +881,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 78,
     "skills": "redshift"
   },
   {
@@ -958,11 +894,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 79,
     "skills": "oracle"
   },
   {
@@ -972,11 +907,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 80,
     "skills": "snowflake"
   },
   {
@@ -986,11 +920,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 85,
     "skills": "watson"
   },
   {
@@ -1000,11 +933,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 95,
     "skills": "pyspark"
   },
   {
@@ -1014,11 +946,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 96,
     "skills": "airflow"
   },
   {
@@ -1028,11 +959,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 169,
     "skills": "linux"
   },
   {
@@ -1042,11 +972,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 182,
     "skills": "tableau"
   },
   {
@@ -1056,11 +985,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 194,
     "skills": "ssis"
   },
   {
@@ -1070,11 +998,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 200,
     "skills": "cognos"
   },
   {
@@ -1084,11 +1011,10 @@ INNER JOIN
     "job_location": "Senior - Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,515",
+    "salary_year_avg": "160515.0",
     "salary_rank": "9",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 204,
     "skills": "visio"
   },
   {
@@ -1098,11 +1024,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,000",
+    "salary_year_avg": "160000.0",
     "salary_rank": "10",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 0,
     "skills": "sql"
   },
   {
@@ -1112,11 +1037,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,000",
+    "salary_year_avg": "160000.0",
     "salary_rank": "10",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 1,
     "skills": "python"
   },
   {
@@ -1126,11 +1050,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,000",
+    "salary_year_avg": "160000.0",
     "salary_rank": "10",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 5,
     "skills": "r"
   },
   {
@@ -1140,11 +1063,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,000",
+    "salary_year_avg": "160000.0",
     "salary_rank": "10",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 7,
     "skills": "sas"
   },
   {
@@ -1154,11 +1076,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,000",
+    "salary_year_avg": "160000.0",
     "salary_rank": "10",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 61,
     "skills": "sql server"
   },
   {
@@ -1168,11 +1089,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,000",
+    "salary_year_avg": "160000.0",
     "salary_rank": "10",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 74,
     "skills": "azure"
   },
   {
@@ -1182,11 +1102,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,000",
+    "salary_year_avg": "160000.0",
     "salary_rank": "10",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 183,
     "skills": "power bi"
   },
   {
@@ -1196,11 +1115,10 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,000",
+    "salary_year_avg": "160000.0",
     "salary_rank": "10",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 186,
     "skills": "sas"
   },
   {
@@ -1210,13 +1128,11 @@ INNER JOIN
     "job_location": "Principal Data Analyst",
     "job_schedule_type": "Full-time",
     "job_health_insurance": true,
-    "formatted_salary": "160,000",
+    "salary_year_avg": "160000.0",
     "salary_rank": "10",
     "location_category": "Remote",
     "salary_quote": "Mid",
-    "skill_id": 197,
     "skills": "ssrs"
   }
 ]
-
 

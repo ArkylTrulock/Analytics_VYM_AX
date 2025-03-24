@@ -12,6 +12,11 @@ WITH top_demanded_skills AS(
     sd.skills AS skills,
     sd.skill_id AS skill_id,
     COUNT(sjd.job_id) AS demand_count,
+    COALESCE((COUNT(sjd.job_id) * 100.0 / SUM(COUNT(sjd.job_id)) OVER ()), 0) AS demand_count_percentage,
+    COALESCE(COUNT(sjd.job_id) - LAG(COUNT(sjd.job_id)) OVER (ORDER BY COUNT(sjd.job_id) DESC), 0) AS demand_count_change,
+    COALESCE(ROUND(((COUNT(sjd.job_id) - LAG(COUNT(sjd.job_id)) OVER (ORDER BY COUNT(sjd.job_id) DESC)) 
+        / NULLIF(LAG(COUNT(sjd.job_id)) OVER (ORDER BY COUNT(sjd.job_id) DESC)::DECIMAL, 0)) * 100, 2), 0) 
+        AS demand_count_change_percentage, -- COUNT() returns an integer. Dividing two integers may result in 0. ::DECIMAL converts to DECIMAL or FLOAT before division. 
     TO_CHAR(COUNT(sjd.job_id), 'FM999,999,999') AS formatted_count,
     AVG(jpf.salary_year_avg) AS avg_yearly_sal,
     TO_CHAR(ROUND(AVG(salary_year_avg), 0),'FM999,999,999') AS formatted_salary,
@@ -27,23 +32,27 @@ WITH top_demanded_skills AS(
         jpf.job_title_short = 'Data Analyst' AND
         jpf.job_work_from_home = TRUE AND
         jpf.salary_year_avg IS NOT NULL
-    GROUP BY -- Use when aggregating (COUNT, SUM, AVG etc.)
+    GROUP BY -- Use when aggregating (COUNT, SUM, AVG etc..)
         sd.skills,
         sd.skill_id
-    -- ORDER BY
-    --     demand_count DESC
+    ORDER BY
+        demand_count DESC
+        --avg_yearly_sal DESC
 )
 SELECT
     skills,
     skill_id,
-    formatted_count,
-    formatted_salary,
+    demand_count_percentage,
+    demand_count,
     count_rank,
+    demand_count_change,
+    demand_count_change_percentage,
+    --formatted_count,  
+    --formatted_salary,   
+    avg_yearly_sal,
     salary_rank  
 FROM
     top_demanded_skills
-ORDER BY
-    demand_count DESC
 LIMIT
     25;
 
@@ -51,201 +60,276 @@ LIMIT
   {
     "skills": "sql",
     "skill_id": 0,
-    "formatted_count": "398",
-    "formatted_salary": "97,237",
+    "demand_count_percentage": "15.9072741806554756",
+    "demand_count": "398",
     "count_rank": "1",
+    "demand_count_change": "0",
+    "demand_count_change_percentage": "0",
+    "avg_yearly_sal": "97237.161824748744",
     "salary_rank": "62"
   },
   {
     "skills": "excel",
     "skill_id": 181,
-    "formatted_count": "256",
-    "formatted_salary": "87,288",
+    "demand_count_percentage": "10.2318145483613110",
+    "demand_count": "256",
     "count_rank": "2",
+    "demand_count_change": "-142",
+    "demand_count_change_percentage": "-35.68",
+    "avg_yearly_sal": "87288.214080810547",
     "salary_rank": "86"
   },
   {
     "skills": "python",
     "skill_id": 1,
-    "formatted_count": "236",
-    "formatted_salary": "101,397",
+    "demand_count_percentage": "9.4324540367705835",
+    "demand_count": "236",
     "count_rank": "3",
+    "demand_count_change": "-20",
+    "demand_count_change_percentage": "-7.81",
+    "avg_yearly_sal": "101397.219941737288",
     "salary_rank": "47"
   },
   {
     "skills": "tableau",
     "skill_id": 182,
-    "formatted_count": "230",
-    "formatted_salary": "99,288",
+    "demand_count_percentage": "9.1926458832933653",
+    "demand_count": "230",
     "count_rank": "4",
+    "demand_count_change": "-6",
+    "demand_count_change_percentage": "-2.54",
+    "avg_yearly_sal": "99287.650000000000",
     "salary_rank": "51"
   },
   {
     "skills": "r",
     "skill_id": 5,
-    "formatted_count": "148",
-    "formatted_salary": "100,499",
+    "demand_count_percentage": "5.9152677857713829",
+    "demand_count": "148",
     "count_rank": "5",
+    "demand_count_change": "-82",
+    "demand_count_change_percentage": "-35.65",
+    "avg_yearly_sal": "100498.766258445946",
     "salary_rank": "48"
   },
   {
     "skills": "power bi",
     "skill_id": 183,
-    "formatted_count": "110",
-    "formatted_salary": "97,431",
+    "demand_count_percentage": "4.3964828137490008",
+    "demand_count": "110",
     "count_rank": "6",
+    "demand_count_change": "-38",
+    "demand_count_change_percentage": "-25.68",
+    "avg_yearly_sal": "97431.304545454545",
     "salary_rank": "61"
   },
   {
     "skills": "sas",
     "skill_id": 7,
-    "formatted_count": "63",
-    "formatted_salary": "98,902",
+    "demand_count_percentage": "2.5179856115107914",
+    "demand_count": "63",
     "count_rank": "7",
+    "demand_count_change": "-47",
+    "demand_count_change_percentage": "-42.73",
+    "avg_yearly_sal": "98902.371527777778",
     "salary_rank": "56"
   },
   {
     "skills": "sas",
     "skill_id": 186,
-    "formatted_count": "63",
-    "formatted_salary": "98,902",
+    "demand_count_percentage": "2.5179856115107914",
+    "demand_count": "63",
     "count_rank": "7",
+    "demand_count_change": "0",
+    "demand_count_change_percentage": "0.00",
+    "avg_yearly_sal": "98902.371527777778",
     "salary_rank": "56"
   },
   {
     "skills": "powerpoint",
     "skill_id": 196,
-    "formatted_count": "58",
-    "formatted_salary": "88,701",
+    "demand_count_percentage": "2.3181454836131095",
+    "demand_count": "58",
     "count_rank": "9",
+    "demand_count_change": "-5",
+    "demand_count_change_percentage": "-7.94",
+    "avg_yearly_sal": "88701.094827586207",
     "salary_rank": "84"
   },
   {
     "skills": "looker",
     "skill_id": 185,
-    "formatted_count": "49",
-    "formatted_salary": "103,795",
+    "demand_count_percentage": "1.9584332533972822",
+    "demand_count": "49",
     "count_rank": "10",
+    "demand_count_change": "-9",
+    "demand_count_change_percentage": "-15.52",
+    "avg_yearly_sal": "103795.295918367347",
     "salary_rank": "44"
   },
   {
     "skills": "word",
     "skill_id": 188,
-    "formatted_count": "48",
-    "formatted_salary": "82,576",
+    "demand_count_percentage": "1.9184652278177458",
+    "demand_count": "48",
     "count_rank": "11",
+    "demand_count_change": "-1",
+    "demand_count_change_percentage": "-2.04",
+    "avg_yearly_sal": "82576.039713541667",
     "salary_rank": "94"
   },
   {
     "skills": "oracle",
     "skill_id": 79,
-    "formatted_count": "37",
-    "formatted_salary": "104,534",
+    "demand_count_percentage": "1.4788169464428457",
+    "demand_count": "37",
     "count_rank": "12",
+    "demand_count_change": "-11",
+    "demand_count_change_percentage": "-22.92",
+    "avg_yearly_sal": "104533.700168918919",
     "salary_rank": "42"
   },
   {
     "skills": "snowflake",
     "skill_id": 80,
-    "formatted_count": "37",
-    "formatted_salary": "112,948",
+    "demand_count_percentage": "1.4788169464428457",
+    "demand_count": "37",
     "count_rank": "12",
+    "demand_count_change": "0",
+    "demand_count_change_percentage": "0.00",
+    "avg_yearly_sal": "112947.972972972973",
     "salary_rank": "31"
   },
   {
     "skills": "sql server",
     "skill_id": 61,
-    "formatted_count": "35",
-    "formatted_salary": "97,786",
+    "demand_count_percentage": "1.3988808952837730",
+    "demand_count": "35",
     "count_rank": "14",
+    "demand_count_change": "-2",
+    "demand_count_change_percentage": "-5.41",
+    "avg_yearly_sal": "97785.728571428571",
     "salary_rank": "58"
   },
   {
     "skills": "azure",
     "skill_id": 74,
-    "formatted_count": "34",
-    "formatted_salary": "111,225",
+    "demand_count_percentage": "1.3589128697042366",
+    "demand_count": "34",
     "count_rank": "15",
+    "demand_count_change": "-1",
+    "demand_count_change_percentage": "-2.86",
+    "avg_yearly_sal": "111225.102941176471",
     "salary_rank": "34"
-  },
-  {
-    "skills": "aws",
-    "skill_id": 76,
-    "formatted_count": "32",
-    "formatted_salary": "108,317",
-    "count_rank": "16",
-    "salary_rank": "36"
   },
   {
     "skills": "sheets",
     "skill_id": 192,
-    "formatted_count": "32",
-    "formatted_salary": "86,088",
+    "demand_count_percentage": "1.2789768185451639",
+    "demand_count": "32",
     "count_rank": "16",
+    "demand_count_change": "-2",
+    "demand_count_change_percentage": "-5.88",
+    "avg_yearly_sal": "86087.790771484375",
     "salary_rank": "89"
+  },
+  {
+    "skills": "aws",
+    "skill_id": 76,
+    "demand_count_percentage": "1.2789768185451639",
+    "demand_count": "32",
+    "count_rank": "16",
+    "demand_count_change": "0",
+    "demand_count_change_percentage": "0.00",
+    "avg_yearly_sal": "108317.296875000000",
+    "salary_rank": "36"
   },
   {
     "skills": "flow",
     "skill_id": 215,
-    "formatted_count": "28",
-    "formatted_salary": "97,200",
+    "demand_count_percentage": "1.1191047162270184",
+    "demand_count": "28",
     "count_rank": "18",
+    "demand_count_change": "-4",
+    "demand_count_change_percentage": "-12.50",
+    "avg_yearly_sal": "97200.000000000000",
     "salary_rank": "64"
   },
   {
     "skills": "go",
     "skill_id": 8,
-    "formatted_count": "27",
-    "formatted_salary": "115,320",
+    "demand_count_percentage": "1.0791366906474820",
+    "demand_count": "27",
     "count_rank": "19",
+    "demand_count_change": "-1",
+    "demand_count_change_percentage": "-3.57",
+    "avg_yearly_sal": "115319.888888888889",
     "salary_rank": "27"
-  },
-  {
-    "skills": "spss",
-    "skill_id": 199,
-    "formatted_count": "24",
-    "formatted_salary": "92,170",
-    "count_rank": "20",
-    "salary_rank": "76"
   },
   {
     "skills": "vba",
     "skill_id": 22,
-    "formatted_count": "24",
-    "formatted_salary": "88,783",
+    "demand_count_percentage": "0.95923261390887290168",
+    "demand_count": "24",
     "count_rank": "20",
+    "demand_count_change": "-3",
+    "demand_count_change_percentage": "-11.11",
+    "avg_yearly_sal": "88783.291666666667",
     "salary_rank": "83"
+  },
+  {
+    "skills": "spss",
+    "skill_id": 199,
+    "demand_count_percentage": "0.95923261390887290168",
+    "demand_count": "24",
+    "count_rank": "20",
+    "demand_count_change": "0",
+    "demand_count_change_percentage": "0.00",
+    "avg_yearly_sal": "92169.683593750000",
+    "salary_rank": "76"
   },
   {
     "skills": "hadoop",
     "skill_id": 97,
-    "formatted_count": "22",
-    "formatted_salary": "113,193",
+    "demand_count_percentage": "0.87929656274980015987",
+    "demand_count": "22",
     "count_rank": "22",
+    "demand_count_change": "-2",
+    "demand_count_change_percentage": "-8.33",
+    "avg_yearly_sal": "113192.568181818182",
     "salary_rank": "30"
-  },
-  {
-    "skills": "jira",
-    "skill_id": 233,
-    "formatted_count": "20",
-    "formatted_salary": "104,918",
-    "count_rank": "23",
-    "salary_rank": "41"
   },
   {
     "skills": "javascript",
     "skill_id": 9,
-    "formatted_count": "20",
-    "formatted_salary": "97,587",
+    "demand_count_percentage": "0.79936051159072741807",
+    "demand_count": "20",
     "count_rank": "23",
+    "demand_count_change": "-2",
+    "demand_count_change_percentage": "-9.09",
+    "avg_yearly_sal": "97587.000000000000",
     "salary_rank": "59"
+  },
+  {
+    "skills": "jira",
+    "skill_id": 233,
+    "demand_count_percentage": "0.79936051159072741807",
+    "demand_count": "20",
+    "count_rank": "23",
+    "demand_count_change": "0",
+    "demand_count_change_percentage": "0.00",
+    "avg_yearly_sal": "104917.900000000000",
+    "salary_rank": "41"
   },
   {
     "skills": "sharepoint",
     "skill_id": 195,
-    "formatted_count": "18",
-    "formatted_salary": "81,634",
+    "demand_count_percentage": "0.71942446043165467626",
+    "demand_count": "18",
     "count_rank": "25",
+    "demand_count_change": "-2",
+    "demand_count_change_percentage": "-10.00",
+    "avg_yearly_sal": "81633.583333333333",
     "salary_rank": "97"
   }
 ]
