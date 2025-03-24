@@ -373,7 +373,7 @@ LIMIT
 *Generated using pandas library*
 
 ### Barplot
-![Top 25 Top-Paying Data Analyst Skills - Barplot](Assets/Top_25_Top_Paying_DA_Job_Skills_Orderd_By_Salary_barplot.png)
+![Top 25 Top-Paying Data Analyst Skills - Barplot](Assets/Top_25_Top_Paying_DA_Job_Skills_Ordered_By_Salary_barplot.png)
 *Generated using seaborn library*
 
 ### General Overview:
