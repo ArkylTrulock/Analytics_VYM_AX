@@ -580,29 +580,27 @@ ORDER BY
 
 ### Key Insights & Interpretations:
 
-**I:** 
+**I:** July had the highest count (827), indicating a peak in activity, while November had the lowest (705).
 
-**II:** 
+**II:** December saw a notable 15.18% increase from November, suggesting a seasonal rise in content.
 
-**III:**
+**III:** August experienced the biggest drop (-8.83%), potentially signaling a post-summer decline.
 
 
 ### Trends & Implications:
 
-**I:** 
+**I:** The fluctuations suggest potential seasonality, with content peaking mid-year and towards the end of the year.
 
-**II:** 
-
-**III:**
+**II:** The decline from August to November might indicate a slowdown before a holiday surge in December.
 
 
 ### Actionable Takeaways:
 
-**I:** 
+**I:** Investigate factors contributing to July and December spikes to leverage content strategy.
 
-**II:** 
+**II:** Explore the causes behind the August to November drop to mitigate future declines.
 
-**III:**
+**III:** Consider aligning releases with peak months to maximise engagement.
 
 
 ### 7. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Quarters[.sql](7_Top_10_Quarters.sql)
@@ -674,29 +672,27 @@ ORDER BY
 
 ### Key Insights & Interpretations:
 
-**I:** 
+**I:** Q3 had the highest count (2,350), marking the peak period of activity.
 
-**II:** 
+**II:** Q4 saw a slight decline (-3.11%), indicating a drop-off after the Q3 peak.
 
-**III:**
+**III:** The strongest growth occurred from Q2 to Q3 (10.69%), highlighting a mid-year surge.
 
 
 ### Trends & Implications:
 
-**I:** 
+**I:** The increasing trend from Q1 to Q3 suggests a buildup towards peak content periods.
 
-**II:** 
-
-**III:**
+**II:** The slight dip in Q4 might indicate seasonal fluctuations or shifting priorities.
 
 
 ### Actionable Takeaways:
 
-**I:** 
+**I:** Capitalise on the Q3 surge by aligning major releases or promotions during this period.
 
-**II:** 
+**II:** Investigate potential reasons for the Q4 drop to mitigate future declines.
 
-**III:**
+**III:** Analyse Q1’s performance to identify early-year opportunities for engagement.
 
 
 ### 8. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Release Years[.sql](8_Top_10_Release_Years.sql)
@@ -764,29 +760,29 @@ ORDER BY
 
 ### Key Insights & Interpretations:
 
-**I:** 
+**I:** The data shows a steady increase in counts from 2012 to 2018, peaking in 2018.
 
-**II:** 
+**II:** This growth suggests increased demand or production capacity during these years.
 
-**III:**
+**III:** The sharp decline after 2018 highlights a significant shift that needs further investigation.
 
 
 ### Trends & Implications:
 
-**I:** 
+**I:** The upward trend until 2018 implies strong market performance and growth opportunities.
 
-**II:** 
+**II:** The decline from 2019 onwards could indicate market saturation or increased competition.
 
-**III:**
+**III:** Understanding these trends is crucial for forecasting and strategic decision-making.
 
 
 ### Actionable Takeaways:
 
-**I:** 
+**I:** Conduct a detailed analysis of factors contributing to the decline post-2018.
 
-**II:** 
+**II:** Explore diversification or new market opportunities to counteract the downward trend.
 
-**III:**
+**III:** Strengthen competitive strategies and consider external factors impacting growth.
 
 
 ### 9. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Release Years And Quarters[.sql](9_Top_10_Release_Years_And_Quarters.sql)
@@ -859,29 +855,29 @@ ORDER BY
 
 ### Key Insights & Interpretations:
 
-**I:** 
+**I:** The highest count occurs in Q4 2018, indicating a peak in activity or demand during this period.
 
-**II:** 
+**II:** There is a noticeable fluctuation in counts across quarters, suggesting seasonal or cyclical variations.
 
-**III:**
+**III:** The decline in Q1 2018 and Q3 2019 highlights potential challenges or changes in market conditions.
 
 
 ### Trends & Implications:
 
-**I:** 
+**I:** The data shows a general pattern of higher counts in Q4, possibly due to end-of-year activities or increased demand.
 
-**II:** 
+**II:** Fluctuations suggest that external factors or market dynamics significantly impact quarterly performance.
 
-**III:**
+**III:** Understanding these trends can help in planning and optimising resource allocation throughout the year.
 
 
 ### Actionable Takeaways:
 
-**I:** 
+**I:** Investigate the factors contributing to the peak in Q4 2018 to replicate success in future quarters.
 
-**II:** 
+**II:** Analyse the causes of declines in specific quarters to mitigate risks and improve stability.
 
-**III:**
+**III:** Develop strategies to capitalise on high-performing quarters and address challenges in weaker periods.
 
 
 ### 10. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Ratings[.sql](10_Top_10_Ratings.sql)
@@ -946,29 +942,29 @@ FROM
 
 ### Key Insights & Interpretations:
 
-**I:** 
+**I:** TV-MA has the highest count, indicating a strong preference or demand for mature content.
 
-**II:** 
+**II:** There is a significant drop in counts from TV-MA to TV-14, suggesting a steep decline in content for younger audiences.
 
-**III:**
+**III:** The lowest counts are for TV-G and NR, indicating limited content availability or demand in these categories.
 
 
 ### Trends & Implications:
 
-**I:** 
+**I:** The data suggests a trend towards more mature content, with TV-MA and TV-14 dominating the counts.
 
-**II:** 
+**II:** The sharp percentage decrease in TV-PG and PG-13 indicates a potential shift away from family-oriented content.
 
-**III:**
+**III:** Understanding these trends can help in content planning and targeting specific audience segments effectively.
 
 
 ### Actionable Takeaways:
 
-**I:** 
+**I:** Focus on expanding TV-MA content to capitalise on its high demand and popularity.
 
-**II:** 
+**II:** Investigate the reasons behind the decline in TV-PG and PG-13 to address potential gaps in the market.
 
-**III:**
+**III:** Consider strategies to diversify content offerings, especially in underrepresented categories like TV-G and NR.
 
 
 ### 11. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Countries[.sql](11_Top_10_Countries.sql)
@@ -1031,29 +1027,29 @@ FROM
 
 ### Key Insights & Interpretations:
 
-**I:** 
+**I:** The United States leads with nearly half of the total count, indicating a dominant presence.
 
-**II:** 
+**II:** India and the United Kingdom follow, but with significantly lower counts, highlighting a concentration of content in the U.S.
 
-**III:**
+**III:** The steep percentage decrease from India to the United Kingdom suggests a sharp drop in content production or availability.
 
 
 ### Trends & Implications:
 
-**I:** 
+**I:** The data shows a strong U.S. dominance, which may influence global content trends and preferences.
 
-**II:** 
+**II:** The decline in counts for other countries suggests potential challenges in content production or distribution.
 
-**III:**
+**III:** Understanding these trends can help identify opportunities for growth in underrepresented markets.
 
 
 ### Actionable Takeaways:
 
-**I:** 
+**I:** Explore strategies to increase content production in countries with lower counts to diversify offerings.
 
-**II:** 
+**II:** Investigate the factors contributing to the U.S.'s dominance to replicate success in other regions.
 
-**III:**
+**III:** Consider partnerships or collaborations in countries with declining counts to boost content availability.
 
 
 ### 12. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Countries By Movie Count[.sql](12_Top_10_Countries_By_Movie_Count.sql)
@@ -1118,29 +1114,29 @@ FROM
 
 ### Key Insights & Interpretations:
 
-**I:** 
+**I:** The United States accounts for over half of the total count, indicating a strong dominance in content production.
 
-**II:** 
+**II:** India and the United Kingdom follow, but with significantly lower counts, highlighting a concentration of content in the U.S.
 
-**III:**
+**III:** The sharp percentage decrease from India to the United Kingdom suggests a steep drop in content availability or production.
 
 
 ### Trends & Implications:
 
-**I:** 
+**I:** The data reflects a strong U.S. influence, which may shape global content trends and audience preferences.
 
-**II:** 
+**II:** The decline in counts for other countries suggests potential barriers in content production or distribution.
 
-**III:**
+**III:** Recognising these trends can help identify growth opportunities in less represented markets.
 
 
 ### Actionable Takeaways:
 
-**I:** 
+**I:** Develop strategies to boost content production in countries with lower counts to diversify offerings.
 
-**II:** 
+**II:** Investigate the factors contributing to the U.S.'s dominance to replicate success in other regions.
 
-**III:**
+**III:** Consider partnerships or collaborations in countries with declining counts to enhance content availability.
 
 
 ### 13. 🔢The Count, 💯Percentage, ⏳Previous Count, 📈📉Percentage Change & 🏅Count Rank Of The Top 10 Countries By TV Show Count[.sql](13_Top_10_Countries_By_TV_Show_Count.sql)
@@ -1205,29 +1201,29 @@ FROM
 
 ### Key Insights & Interpretations:
 
-**I:** 
+**I:** The United States leads with the highest count, indicating a dominant role in content production.
 
-**II:** 
+**II:** Pakistan and the United Kingdom follow, but with significantly lower counts, showing a concentration of content in the U.S.
 
-**III:**
+**III:** The percentage decrease from Pakistan to the United Kingdom suggests a notable drop in content availability.
 
 
 ### Trends & Implications:
 
-**I:** 
+**I:** The data highlights a strong U.S. influence, potentially shaping global content trends and audience preferences.
 
-**II:** 
+**II:** The decline in counts for other countries suggests challenges in content production or distribution.
 
-**III:**
+**III:** Recognising these trends can help identify opportunities for growth in less represented markets.
 
 
 ### Actionable Takeaways:
 
-**I:** 
+**I:** Develop strategies to increase content production in countries with lower counts to diversify offerings.
 
-**II:** 
+**II:** Investigate the factors contributing to the U.S.'s dominance to replicate success in other regions.
 
-**III:**
+**III:** Consider partnerships or collaborations in countries with declining counts to enhance content availability.
 
 
 
